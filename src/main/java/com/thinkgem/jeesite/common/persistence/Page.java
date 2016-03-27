@@ -193,7 +193,6 @@ public class Page<T> {
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		
 		if (pageNo == first) {// 如果是首页
 			sb.append("<li class=\"disabled\"><a href=\"javascript:\">&#171; 上一页</a></li>\n");
 		} else {
@@ -261,7 +260,7 @@ public class Page<T> {
 		sb.append(funcName+"("+pageNo+",this.value,'"+funcParam+"');\" onclick=\"this.select();\"/> 条，");
 		sb.append("共 " + count + " 条"+(message!=null?message:"")+"</a></li>\n");
 
-		sb.insert(0,"<ul>\n").append("</ul>\n");
+		sb.insert(0,"<ul class='pagination pagination-sm no-margin pull-right'>\n").append("</ul>\n");
 		
 		sb.append("<div style=\"clear:both;\"></div>");
 

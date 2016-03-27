@@ -70,7 +70,7 @@
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
 
-<script src="${ctxStatic}/adminlte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="${ctxStatic}/adminlte/plugins/jQuery/jquery-1.10.2.min.js"></script>
 <script src="${ctxStatic}/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <script src="${ctxStatic}/adminlte/plugins/iCheck/icheck.min.js"></script>
 <script>

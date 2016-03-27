@@ -4,9 +4,9 @@
 <head>
 	<title>${fns:getConfig('productName')}</title>
 	<meta name="decorator" content="blank"/>
-    <c:if test="${cookie.tabmode.value eq '1'}"><link rel="Stylesheet" href="${ctxStatic}/jerichotab/css/jquery.jerichotab.css" />
-    <script type="text/javascript" src="${ctxStatic}/jerichotab/js/jquery.jerichotab.js"></script></c:if>
-	<style type="text/css">
+    <%--<c:if test="${cookie.tabmode.value eq '1'}"><link rel="Stylesheet" href="${ctxStatic}/jerichotab/css/jquery.jerichotab.css" />--%>
+    <%--<script type="text/javascript" src="${ctxStatic}/jerichotab/js/jquery.jerichotab.js"></script></c:if>--%>
+	<style type="text/css">top.$.jBox.closeTip()
 		#main {padding:0;margin:0;} #main .container-fluid{padding:0 4px 0 6px;}
 		#header {margin:0 0 8px;position:static;} #header li {font-size:14px;_font-size:12px;}
 		#header .brand {font-family:Helvetica, Georgia, Arial, sans-serif, 黑体;font-size:26px;padding-left:33px;}

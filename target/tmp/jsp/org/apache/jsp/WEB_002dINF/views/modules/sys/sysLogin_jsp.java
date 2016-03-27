@@ -21,8 +21,11 @@ static {
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(2);
+    _jspx_dependants = new java.util.Vector(5);
     _jspx_dependants.add("/WEB-INF/views/include/taglib.jsp");
+    _jspx_dependants.add("/WEB-INF/tlds/shiros.tld");
+    _jspx_dependants.add("/WEB-INF/tlds/fns.tld");
+    _jspx_dependants.add("/WEB-INF/tlds/fnc.tld");
     _jspx_dependants.add("/WEB-INF/tags/sys/validateCode.tag");
   }
 
@@ -174,7 +177,7 @@ static {
       out.write("\n");
       out.write("<script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/adminlte/plugins/jQuery/jQuery-2.1.4.min.js\"></script>\n");
+      out.write("/adminlte/plugins/jQuery/jquery-1.10.2.min.js\"></script>\n");
       out.write("<script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/adminlte/bootstrap/js/bootstrap.min.js\"></script>\n");
