@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=${ctxStatic}edge">
     <title>${fns:getConfig('productName')}</title>
     <script src="${ctxStatic}/adminlte/plugins/jQuery/jquery-1.10.2.min.js"></script>
-
+    <link href="${ctxStatic}/bootstrap/2.3.1/awesome/font-awesome.min.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="${ctxStatic}/fontawesome/css/font-awesome.css">
     <link rel="stylesheet" href="${ctxStatic}/adminlte/ionicons.min.css">
     <link rel="stylesheet"
@@ -41,6 +41,7 @@
     <script src="${ctxStatic}/common/mustache.min.js" type="text/javascript"></script>
     <link href="${ctxStatic}/common/jeesite.css" type="text/css" rel="stylesheet" />
     <script src="${ctxStatic}/common/jeesite.js" type="text/javascript"></script>
+
     <script type="text/javascript">var ctx = '${ctx}', ctxStatic='${ctxStatic}';</script>
 </head>
 

@@ -20,19 +20,29 @@
         <li><a href="${ctx}/sys/dict/form?sort=10">字典添加</a></li>
     </shiro:hasPermission>
 </ul>
-<form:form id="searchForm" modelAttribute="dict" action="${ctx}/sys/dict/" method="post" class="breadcrumb form-search">
+<form:form id="searchForm" modelAttribute="dict" action="${ctx}/sys/dict/"
+           method="post" class="col-md-12 well form-horizontal" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-    <label>类型：</label>
-    <form:select id="type" path="type" width="85px">
-        <form:option value="" label=""/>
-        <form:options items="${typeList}" htmlEscape="false"/>
-    </form:select>
-    &nbsp;&nbsp;
-    <label>描述 ：</label>
-    <form:input path="description" htmlEscape="false" widti="75px"/>
-    &nbsp;
-    <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+
+    <div class="col-sm-4 form-group">
+        <label class="col-sm-4 control-label">类型：</label>
+        <div class="col-sm-8">
+            <form:select id="type" path="type" class="form-control ">
+                <form:option value="" label=""/>
+                <form:options items="${typeList}" htmlEscape="false"/>
+            </form:select>
+        </div>
+    </div>
+    <div class="col-sm-4 form-group">
+        <label class="col-sm-4 control-label">描述 ：</label>
+        <div class="col-sm-8">
+            <form:input path="description" htmlEscape="false" class="form-control"/>
+        </div>
+    </div>
+    <div class="col-sm-4 form-group">
+        <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+    </div>
 </form:form>
 <sys:message content="${message}"/>
 <table id="contentTable" class="table table-hover">

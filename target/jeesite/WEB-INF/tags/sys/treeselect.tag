@@ -25,15 +25,20 @@
 <%@ attribute name="hideBtn" type="java.lang.Boolean" required="false" description="是否显示按钮" %>
 <%@ attribute name="disabled" type="java.lang.String" required="false" description="是否限制选择，如果限制，设置为disabled" %>
 <%@ attribute name="dataMsgRequired" type="java.lang.String" required="false" description="" %>
-<div class="input-append">
+<div class="row" >
     <input id="${id}Id" name="${name}" type="hidden" value="${value}"/>
-    <input id="${id}Name" name="${labelName}" ${allowInput?'':'readonly="readonly"'} type="text"
-           value="${labelValue}"
-           data-msg-required="${dataMsgRequired}"
-           class="${cssClass}" style="${cssStyle} float: left"/><a id="${id}Button" href="javascript:"
-                                                                   class="btn btn-info ${disabled} ${hideBtn ? 'hide' : ''}"
-                                                                   style="${smallBtn?'padding:4px 2px;':''}">选择<i
-        class="icon-search"></i>&nbsp;</a>&nbsp;&nbsp;
+    <div class="col-sm-9">
+        <input id="${id}Name" name="${labelName}" ${allowInput?'':'readonly="readonly"'} type="text"
+               value="${labelValue}"
+               data-msg-required="${dataMsgRequired}"
+               class="${cssClass}" style="${cssStyle} float: left"/>
+    </div>
+    <div class="col-sm-3" style="margin-left: -30px"><a id="${id}Button" href="javascript:"
+                             class="btn btn-info ${disabled} ${hideBtn ? 'hide' : ''}">
+        &nbsp;<i
+            class="icon-search"></i>&nbsp;</a>&nbsp;&nbsp;
+    </div>
+
 </div>
 <script type="text/javascript">
     $("#${id}Button, #${id}Name").click(function () {
@@ -46,8 +51,8 @@
         var d = top.dialog({
             title: '选择${title}',
             url: url,
-            height:420,
-            width:300,
+            height: 420,
+            width: 300,
             okValue: '确定',
             ok: function () {
                 debugger;

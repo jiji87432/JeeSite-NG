@@ -98,9 +98,9 @@ static {
       out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("\t<title>栏目管理</title>\n");
-      out.write("\t<meta name=\"decorator\" content=\"default\"/>\n");
-      out.write("\t");
+      out.write("    <title>栏目管理</title>\n");
+      out.write("    <meta name=\"decorator\" content=\"default\"/>\n");
+      out.write("    ");
       out.write("<link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/treeTable/themes/vsStyle/treeTable.min.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
@@ -108,46 +108,54 @@ static {
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/treeTable/jquery.treeTable.min.js\" type=\"text/javascript\"></script>");
       out.write("\n");
-      out.write("\t<script type=\"text/javascript\">\n");
-      out.write("\t\t$(document).ready(function() {\n");
-      out.write("\t\t\t$(\"#treeTable\").treeTable({expandLevel : 3});\n");
-      out.write("\t\t});\n");
-      out.write("    \tfunction updateSort() {\n");
-      out.write("\t\t\tloading('正在提交，请稍等...');\n");
-      out.write("\t    \t$(\"#listForm\").attr(\"action\", \"");
+      out.write("    <script type=\"text/javascript\">\n");
+      out.write("        $(document).ready(function () {\n");
+      out.write("            $(\"#treeTable\").treeTable({expandLevel: 3});\n");
+      out.write("        });\n");
+      out.write("        function updateSort() {\n");
+      out.write("            loading('正在提交，请稍等...');\n");
+      out.write("            $(\"#listForm\").attr(\"action\", \"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/cms/category/updateSort\");\n");
-      out.write("\t    \t$(\"#listForm\").submit();\n");
-      out.write("    \t}\n");
-      out.write("\t</script>\n");
+      out.write("            $(\"#listForm\").submit();\n");
+      out.write("        }\n");
+      out.write("    </script>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("\t<ul class=\"nav nav-tabs\">\n");
-      out.write("\t\t<li class=\"active\"><a href=\"");
+      out.write("<ul class=\"nav nav-tabs\">\n");
+      out.write("    <li class=\"active\"><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/cms/category/\">栏目列表</a></li>\n");
-      out.write("\t\t");
+      out.write("    ");
       if (_jspx_meth_shiro_hasPermission_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t</ul>\n");
-      out.write("\t");
+      out.write("</ul>\n");
       if (_jspx_meth_sys_message_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t<form id=\"listForm\" method=\"post\">\n");
-      out.write("\t\t<table id=\"treeTable\" class=\"table table-striped table-bordered table-condensed\">\n");
-      out.write("\t\t\t<tr><th>栏目名称</th><th>归属机构</th><th>栏目模型</th><th style=\"text-align:center;\">排序</th><th title=\"是否在导航中显示该栏目\">导航菜单</th><th title=\"是否在分类页中显示该栏目的文章列表\">栏目列表</th><th>展现方式</th><th>操作</th></tr>\n");
-      out.write("\t\t\t");
+      out.write("<form id=\"listForm\" method=\"post\">\n");
+      out.write("    <table id=\"treeTable\" class=\"table table-hover\">\n");
+      out.write("        <tr>\n");
+      out.write("            <td>栏目名称</td>\n");
+      out.write("            <td>归属机构</td>\n");
+      out.write("            <td>栏目模型</td>\n");
+      out.write("            <td style=\"text-align:center;\">排序</td>\n");
+      out.write("            <td title=\"是否在导航中显示该栏目\">导航菜单</td>\n");
+      out.write("            <td title=\"是否在分类页中显示该栏目的文章列表\">栏目列表</td>\n");
+      out.write("            <td>展现方式</td>\n");
+      out.write("            <td>操作</td>\n");
+      out.write("        </tr>\n");
+      out.write("        ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t</table>\n");
-      out.write("\t\t");
+      out.write("    </table>\n");
+      out.write("    ");
       if (_jspx_meth_shiro_hasPermission_3(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t</form>\n");
+      out.write("</form>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -213,9 +221,11 @@ static {
     int _jspx_eval_shiro_hasPermission_0 = _jspx_th_shiro_hasPermission_0.doStartTag();
     if (_jspx_eval_shiro_hasPermission_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<li><a href=\"");
+        out.write("\n");
+        out.write("        <li><a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/cms/category/form\">栏目添加</a></li>");
+        out.write("/cms/category/form\">栏目添加</a></li>\n");
+        out.write("    ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -260,12 +270,12 @@ static {
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("\t\t\t\t<tr id=\"");
+          out.write("            <tr id=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" pId=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.parent.id ne '1'?tpl.parent.id:'0'}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\n");
-          out.write("\t\t\t\t\t<td><a href=\"");
+          out.write("                <td><a href=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("/cms/category/form?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -273,44 +283,45 @@ static {
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></td>\n");
-          out.write("\t\t\t\t\t<td>");
+          out.write("                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.office.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("\t\t\t\t\t<td>");
+          out.write("                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getDictLabel(tpl.module, 'cms_module', '公共模型')}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1));
           out.write("</td>\n");
-          out.write("\t\t\t\t\t<td style=\"text-align:center;\">\n");
-          out.write("\t\t\t\t\t\t");
+          out.write("                <td style=\"text-align:center;\">\n");
+          out.write("                    ");
           if (_jspx_meth_shiro_hasPermission_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           if (_jspx_meth_shiro_lacksPermission_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("\n");
-          out.write("\t\t\t\t\t</td>\n");
-          out.write("\t\t\t\t\t<td>");
+          out.write("                </td>\n");
+          out.write("                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getDictLabel(tpl.inMenu, 'show_hide', '隐藏')}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1));
           out.write("</td>\n");
-          out.write("\t\t\t\t\t<td>");
+          out.write("                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getDictLabel(tpl.inList, 'show_hide', '隐藏')}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1));
           out.write("</td>\n");
-          out.write("\t\t\t\t\t<td>");
+          out.write("                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getDictLabel(tpl.showModes, 'cms_show_modes', '默认展现方式')}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1));
           out.write("</td>\n");
-          out.write("\t\t\t\t\t<td>\n");
-          out.write("\t\t\t\t\t\t<a href=\"");
+          out.write("                <td>\n");
+          out.write("                    <a href=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getFrontPath()}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
           out.write("/list-");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getUrlSuffix()}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_3));
-          out.write("\" target=\"_blank\">访问</a>\n");
-          out.write("\t\t\t\t\t\t");
+          out.write("\"\n");
+          out.write("                       target=\"_blank\">访问</a>\n");
+          out.write("                    ");
           if (_jspx_meth_shiro_hasPermission_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("\n");
-          out.write("\t\t\t\t\t</td>\n");
-          out.write("\t\t\t\t</tr>\n");
-          out.write("\t\t\t");
+          out.write("                </td>\n");
+          out.write("            </tr>\n");
+          out.write("        ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -343,13 +354,14 @@ static {
     if (_jspx_eval_shiro_hasPermission_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\t\t<input type=\"hidden\" name=\"ids\" value=\"");
+        out.write("                        <input type=\"hidden\" name=\"ids\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\"/>\n");
-        out.write("\t\t\t\t\t\t\t<input name=\"sorts\" type=\"text\" value=\"");
+        out.write("                        <input name=\"sorts\" type=\"text\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.sort}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\" style=\"width:50px;margin:0;padding:0;text-align:center;\">\n");
-        out.write("\t\t\t\t\t\t");
+        out.write("\"\n");
+        out.write("                               style=\"width:50px;margin:0;padding:0;text-align:center;\">\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -376,10 +388,10 @@ static {
     if (_jspx_eval_shiro_lacksPermission_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\t\t");
+        out.write("                    ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.sort}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\n");
-        out.write("\t\t\t\t\t\t");
+        out.write("                ");
         int evalDoAfterBody = _jspx_th_shiro_lacksPermission_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -406,22 +418,23 @@ static {
     if (_jspx_eval_shiro_hasPermission_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\t\t<a href=\"");
+        out.write("                        <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/cms/category/form?id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\">修改</a>\n");
-        out.write("\t\t\t\t\t\t\t<a href=\"");
+        out.write("                        <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/cms/category/delete?id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\" onclick=\"return confirmx('要删除该栏目及所有子栏目项吗？', this.href)\">删除</a>\n");
-        out.write("\t\t\t\t\t\t\t<a href=\"");
+        out.write("\"\n");
+        out.write("                           onclick=\"return confirmx('要删除该栏目及所有子栏目项吗？', this.href)\">删除</a>\n");
+        out.write("                        <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/cms/category/form?parent.id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tpl.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\">添加下级栏目</a>\n");
-        out.write("\t\t\t\t\t\t");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -447,9 +460,11 @@ static {
     int _jspx_eval_shiro_hasPermission_3 = _jspx_th_shiro_hasPermission_3.doStartTag();
     if (_jspx_eval_shiro_hasPermission_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<div class=\"form-actions pagination-left\">\n");
-        out.write("\t\t\t<input id=\"btnSubmit\" class=\"btn btn-primary\" type=\"button\" value=\"保存排序\" onclick=\"updateSort();\"/>\n");
-        out.write("\t\t</div>");
+        out.write("\n");
+        out.write("        <div class=\"form-actions pagination-left\">\n");
+        out.write("            <input id=\"btnSubmit\" class=\"btn btn-primary\" type=\"button\" value=\"保存排序\" onclick=\"updateSort();\"/>\n");
+        out.write("        </div>\n");
+        out.write("    ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_3.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
