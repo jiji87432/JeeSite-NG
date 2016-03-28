@@ -461,7 +461,7 @@ static {
     if (_jspx_eval_shiro_hasPermission_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("        <div class=\"form-actions pagination-left\">\n");
+        out.write("        <div class=\"pull-right\" style=\"margin-bottom: 20px;margin-right: 10px\">\n");
         out.write("            <input id=\"btnSubmit\" class=\"btn btn-primary\" type=\"button\" value=\"保存排序\" onclick=\"updateSort();\"/>\n");
         out.write("        </div>\n");
         out.write("    ");

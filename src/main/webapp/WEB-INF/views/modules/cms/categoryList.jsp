@@ -67,7 +67,7 @@
         </c:forEach>
     </table>
     <shiro:hasPermission name="cms:category:edit">
-        <div class="form-actions pagination-left">
+        <div class="pull-right" style="margin-bottom: 20px;margin-right: 10px">
             <input id="btnSubmit" class="btn btn-primary" type="button" value="保存排序" onclick="updateSort();"/>
         </div>
     </shiro:hasPermission>
