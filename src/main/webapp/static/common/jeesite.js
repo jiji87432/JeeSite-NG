@@ -68,12 +68,12 @@ function windowOpen(url, name, width, height){
 
 // 恢复提示框显示
 function resetTip(){
-	top.$.jBox.tip.mess = null;
+	//top.$.jBox.tip.mess = null;
 }
 
 // 关闭提示框
 function closeTip(){
-	top.$.jBox.closeTip();
+	//top.$.jBox.closeTip();
 }
 
 //显示提示框
@@ -87,11 +87,11 @@ function showTip(mess, type, timeout, lazytime){
 
 // 显示加载框
 function loading(mess){
-	if (mess == undefined || mess == ""){
-		mess = "正在提交，请稍等...";
-	}
-	resetTip();
-	top.$.jBox.tip(mess,'loading',{opacity:0});
+	//if (mess == undefined || mess == ""){
+	//	mess = "正在提交，请稍等...";
+	//}
+	//resetTip();
+	//top.$.jBox.tip(mess,'loading',{opacity:0});
 }
 
 // 关闭提示框

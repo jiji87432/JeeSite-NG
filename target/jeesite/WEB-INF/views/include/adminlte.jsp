@@ -24,8 +24,8 @@
 <script src="${ctxStatic}/artdialog/dialog-plus-min.js"></script>
 <link href="${ctxStatic}/artdialog/ui-dialog.css" rel="stylesheet" />
 
-<link href="${ctxStatic}/jquery-select2/3.4/select2.min.css" rel="stylesheet" />
-<script src="${ctxStatic}/jquery-select2/3.4/select2.min.js" type="text/javascript"></script>
+<%--<link href="${ctxStatic}/jquery-select2/3.4/select2.min.css" rel="stylesheet" />--%>
+<%--<script src="${ctxStatic}/jquery-select2/3.4/select2.min.js" type="text/javascript"></script>--%>
 <script src="${ctxStatic}/jquery-validation/1.15.0/jquery.validate.min.js" type="text/javascript"></script>
 <script src="${ctxStatic}/jquery-validation/1.15.0/localization/messages_zh.js" type="text/javascript"></script>
 <script src="${ctxStatic}/common/mustache.min.js" type="text/javascript"></script>

@@ -39,12 +39,10 @@ static {
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_form_role_modelAttribute_method_id_class_action;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_hidden_path_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_input_path_htmlEscape_class_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_input_path_maxlength_htmlEscape_class_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_select_path_class;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_option_value;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_select_path;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_options_items_itemValue_itemLabel_htmlEscape_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_textarea_rows_path_maxlength_htmlEscape_class_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_textarea_rows_path_htmlEscape_class_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -61,12 +59,10 @@ static {
     _jspx_tagPool_form_form_role_modelAttribute_method_id_class_action = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_hidden_path_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_input_path_htmlEscape_class_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_form_input_path_maxlength_htmlEscape_class_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_select_path_class = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_option_value = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_form_select_path = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_options_items_itemValue_itemLabel_htmlEscape_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_form_textarea_rows_path_maxlength_htmlEscape_class_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_form_textarea_rows_path_htmlEscape_class_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
@@ -78,12 +74,10 @@ static {
     _jspx_tagPool_form_form_role_modelAttribute_method_id_class_action.release();
     _jspx_tagPool_form_hidden_path_nobody.release();
     _jspx_tagPool_form_input_path_htmlEscape_class_nobody.release();
-    _jspx_tagPool_form_input_path_maxlength_htmlEscape_class_nobody.release();
     _jspx_tagPool_form_select_path_class.release();
     _jspx_tagPool_form_option_value.release();
-    _jspx_tagPool_form_select_path.release();
     _jspx_tagPool_form_options_items_itemValue_itemLabel_htmlEscape_nobody.release();
-    _jspx_tagPool_form_textarea_rows_path_maxlength_htmlEscape_class_nobody.release();
+    _jspx_tagPool_form_textarea_rows_path_htmlEscape_class_nobody.release();
     _jspx_tagPool_c_if_test.release();
   }
 
@@ -405,8 +399,8 @@ static {
             out.write("\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
-            out.write("        <label class=\"control-label\">英文名称:</label>\n");
+            out.write("    <div class=\"form-group\">\n");
+            out.write("        <label class=\"control-label\">英文名称:<span class=\"help-inline\"><font color=\"red\">*</font> 工作流用户组标识</span></label>\n");
             out.write("        <div class=\"controls\">\n");
             out.write("            <input id=\"oldEnname\" name=\"oldEnname\" type=\"hidden\" value=\"");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.enname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -415,20 +409,18 @@ static {
             if (_jspx_meth_form_input_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
               return;
             out.write("\n");
-            out.write("            <span class=\"help-inline\"><font color=\"red\">*</font> 工作流用户组标识</span>\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
+            out.write("    <div class=\"form-group\">\n");
             out.write("        <label class=\"control-label\">角色类型:</label>\n");
-            out.write("        <div class=\"controls\">");
-            out.write("\n");
+            out.write("        <div class=\"controls\">\n");
             out.write("            ");
             //  form:select
             org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_select_0 = (org.springframework.web.servlet.tags.form.SelectTag) _jspx_tagPool_form_select_path_class.get(org.springframework.web.servlet.tags.form.SelectTag.class);
             _jspx_th_form_select_0.setPageContext(_jspx_page_context);
             _jspx_th_form_select_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
             _jspx_th_form_select_0.setPath("roleType");
-            _jspx_th_form_select_0.setDynamicAttribute(null, "class", new String("input-medium"));
+            _jspx_th_form_select_0.setDynamicAttribute(null, "class", new String("form-control"));
             int[] _jspx_push_body_count_form_select_0 = new int[] { 0 };
             try {
               int _jspx_eval_form_select_0 = _jspx_th_form_select_0.doStartTag();
@@ -572,7 +564,7 @@ static {
             out.write("\t\t\t\t\t工作流组用户组类型（任务分配：assignment、管理角色：security-role、普通角色：user）</span>\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
+            out.write("    <div class=\"form-group\">\n");
             out.write("        <label class=\"control-label\">是否系统数据:</label>\n");
             out.write("        <div class=\"controls\">\n");
             out.write("            ");
@@ -582,7 +574,7 @@ static {
             out.write("            <span class=\"help-inline\">“是”代表此数据只有超级管理员能进行修改，“否”则表示拥有角色修改人员的权限都能进行修改</span>\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
+            out.write("    <div class=\"form-group\">\n");
             out.write("        <label class=\"control-label\">是否可用</label>\n");
             out.write("        <div class=\"controls\">\n");
             out.write("            ");
@@ -592,7 +584,7 @@ static {
             out.write("            <span class=\"help-inline\">“是”代表此数据可用，“否”则表示此数据不可用</span>\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
+            out.write("    <div class=\"form-group\">\n");
             out.write("        <label class=\"control-label\">数据范围:</label>\n");
             out.write("        <div class=\"controls\">\n");
             out.write("            ");
@@ -602,22 +594,22 @@ static {
             out.write("            <span class=\"help-inline\">特殊情况下，设置为“按明细设置”，可进行跨机构授权</span>\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
+            out.write("    <div class=\"form-group\">\n");
             out.write("        <label class=\"control-label\">角色授权:</label>\n");
             out.write("        <div class=\"controls\">\n");
-            out.write("            <div id=\"menuTree\" class=\"ztree\" style=\"margin-top:3px;float:left;\"></div>\n");
+            out.write("            <div id=\"menuTree\" class=\"ztree\" style=\"margin-top:20px;\"></div>\n");
             out.write("            ");
             if (_jspx_meth_form_hidden_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
               return;
             out.write("\n");
-            out.write("            <div id=\"officeTree\" class=\"ztree\" style=\"margin-left:100px;margin-top:3px;float:left;\"></div>\n");
+            out.write("            <div id=\"officeTree\" class=\"ztree\" style=\"margin-left:100px;margin-top:3px;\"></div>\n");
             out.write("            ");
             if (_jspx_meth_form_hidden_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
               return;
             out.write("\n");
             out.write("        </div>\n");
             out.write("    </div>\n");
-            out.write("    <div class=\"control-group\">\n");
+            out.write("    <div class=\"form-group\">\n");
             out.write("        <label class=\"control-label\">备注:</label>\n");
             out.write("        <div class=\"controls\">\n");
             out.write("            ");
@@ -946,13 +938,12 @@ static {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  form:input
-    org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_input_1 = (org.springframework.web.servlet.tags.form.InputTag) _jspx_tagPool_form_input_path_maxlength_htmlEscape_class_nobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
+    org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_input_1 = (org.springframework.web.servlet.tags.form.InputTag) _jspx_tagPool_form_input_path_htmlEscape_class_nobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_input_1.setPageContext(_jspx_page_context);
     _jspx_th_form_input_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
     _jspx_th_form_input_1.setPath("enname");
     _jspx_th_form_input_1.setHtmlEscape(false);
-    _jspx_th_form_input_1.setMaxlength("50");
-    _jspx_th_form_input_1.setDynamicAttribute(null, "class", new String("required"));
+    _jspx_th_form_input_1.setDynamicAttribute(null, "class", new String("required  form-control"));
     int[] _jspx_push_body_count_form_input_1 = new int[] { 0 };
     try {
       int _jspx_eval_form_input_1 = _jspx_th_form_input_1.doStartTag();
@@ -965,7 +956,7 @@ static {
       _jspx_th_form_input_1.doCatch(_jspx_exception);
     } finally {
       _jspx_th_form_input_1.doFinally();
-      _jspx_tagPool_form_input_path_maxlength_htmlEscape_class_nobody.reuse(_jspx_th_form_input_1);
+      _jspx_tagPool_form_input_path_htmlEscape_class_nobody.reuse(_jspx_th_form_input_1);
     }
     return false;
   }
@@ -975,10 +966,11 @@ static {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  form:select
-    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_select_1 = (org.springframework.web.servlet.tags.form.SelectTag) _jspx_tagPool_form_select_path.get(org.springframework.web.servlet.tags.form.SelectTag.class);
+    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_select_1 = (org.springframework.web.servlet.tags.form.SelectTag) _jspx_tagPool_form_select_path_class.get(org.springframework.web.servlet.tags.form.SelectTag.class);
     _jspx_th_form_select_1.setPageContext(_jspx_page_context);
     _jspx_th_form_select_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
     _jspx_th_form_select_1.setPath("sysData");
+    _jspx_th_form_select_1.setDynamicAttribute(null, "class", new String("form-control"));
     int[] _jspx_push_body_count_form_select_1 = new int[] { 0 };
     try {
       int _jspx_eval_form_select_1 = _jspx_th_form_select_1.doStartTag();
@@ -1004,7 +996,7 @@ static {
       _jspx_th_form_select_1.doCatch(_jspx_exception);
     } finally {
       _jspx_th_form_select_1.doFinally();
-      _jspx_tagPool_form_select_path.reuse(_jspx_th_form_select_1);
+      _jspx_tagPool_form_select_path_class.reuse(_jspx_th_form_select_1);
     }
     return false;
   }
@@ -1043,10 +1035,11 @@ static {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  form:select
-    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_select_2 = (org.springframework.web.servlet.tags.form.SelectTag) _jspx_tagPool_form_select_path.get(org.springframework.web.servlet.tags.form.SelectTag.class);
+    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_select_2 = (org.springframework.web.servlet.tags.form.SelectTag) _jspx_tagPool_form_select_path_class.get(org.springframework.web.servlet.tags.form.SelectTag.class);
     _jspx_th_form_select_2.setPageContext(_jspx_page_context);
     _jspx_th_form_select_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
     _jspx_th_form_select_2.setPath("useable");
+    _jspx_th_form_select_2.setDynamicAttribute(null, "class", new String("form-control"));
     int[] _jspx_push_body_count_form_select_2 = new int[] { 0 };
     try {
       int _jspx_eval_form_select_2 = _jspx_th_form_select_2.doStartTag();
@@ -1072,7 +1065,7 @@ static {
       _jspx_th_form_select_2.doCatch(_jspx_exception);
     } finally {
       _jspx_th_form_select_2.doFinally();
-      _jspx_tagPool_form_select_path.reuse(_jspx_th_form_select_2);
+      _jspx_tagPool_form_select_path_class.reuse(_jspx_th_form_select_2);
     }
     return false;
   }
@@ -1115,7 +1108,7 @@ static {
     _jspx_th_form_select_3.setPageContext(_jspx_page_context);
     _jspx_th_form_select_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
     _jspx_th_form_select_3.setPath("dataScope");
-    _jspx_th_form_select_3.setDynamicAttribute(null, "class", new String("input-medium"));
+    _jspx_th_form_select_3.setDynamicAttribute(null, "class", new String("form-control"));
     int[] _jspx_push_body_count_form_select_3 = new int[] { 0 };
     try {
       int _jspx_eval_form_select_3 = _jspx_th_form_select_3.doStartTag();
@@ -1232,14 +1225,13 @@ static {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  form:textarea
-    org.springframework.web.servlet.tags.form.TextareaTag _jspx_th_form_textarea_0 = (org.springframework.web.servlet.tags.form.TextareaTag) _jspx_tagPool_form_textarea_rows_path_maxlength_htmlEscape_class_nobody.get(org.springframework.web.servlet.tags.form.TextareaTag.class);
+    org.springframework.web.servlet.tags.form.TextareaTag _jspx_th_form_textarea_0 = (org.springframework.web.servlet.tags.form.TextareaTag) _jspx_tagPool_form_textarea_rows_path_htmlEscape_class_nobody.get(org.springframework.web.servlet.tags.form.TextareaTag.class);
     _jspx_th_form_textarea_0.setPageContext(_jspx_page_context);
     _jspx_th_form_textarea_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
     _jspx_th_form_textarea_0.setPath("remarks");
     _jspx_th_form_textarea_0.setHtmlEscape(false);
     _jspx_th_form_textarea_0.setRows("3");
-    _jspx_th_form_textarea_0.setDynamicAttribute(null, "maxlength", new String("200"));
-    _jspx_th_form_textarea_0.setDynamicAttribute(null, "class", new String("input-xlarge"));
+    _jspx_th_form_textarea_0.setDynamicAttribute(null, "class", new String("form-control"));
     int[] _jspx_push_body_count_form_textarea_0 = new int[] { 0 };
     try {
       int _jspx_eval_form_textarea_0 = _jspx_th_form_textarea_0.doStartTag();
@@ -1252,7 +1244,7 @@ static {
       _jspx_th_form_textarea_0.doCatch(_jspx_exception);
     } finally {
       _jspx_th_form_textarea_0.doFinally();
-      _jspx_tagPool_form_textarea_rows_path_maxlength_htmlEscape_class_nobody.reuse(_jspx_th_form_textarea_0);
+      _jspx_tagPool_form_textarea_rows_path_htmlEscape_class_nobody.reuse(_jspx_th_form_textarea_0);
     }
     return false;
   }
