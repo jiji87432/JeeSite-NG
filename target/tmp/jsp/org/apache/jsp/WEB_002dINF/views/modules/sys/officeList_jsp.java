@@ -94,9 +94,9 @@ static {
       out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("\t<title>机构管理</title>\n");
-      out.write("\t<meta name=\"decorator\" content=\"default\"/>\n");
-      out.write("\t");
+      out.write("    <title>机构管理</title>\n");
+      out.write("    <meta name=\"decorator\" content=\"default\"/>\n");
+      out.write("    ");
       out.write("<link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/treeTable/themes/vsStyle/treeTable.min.css\" rel=\"stylesheet\" type=\"text/css\" />\n");
@@ -104,76 +104,83 @@ static {
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/treeTable/jquery.treeTable.min.js\" type=\"text/javascript\"></script>");
       out.write("\n");
-      out.write("\t<script type=\"text/javascript\">\n");
-      out.write("\t\t$(document).ready(function() {\n");
-      out.write("\t\t\tvar tpl = $(\"#treeTableTpl\").html().replace(/(\\/\\/\\<!\\-\\-)|(\\/\\/\\-\\->)/g,\"\");\n");
-      out.write("\t\t\tvar data = ");
+      out.write("    <script type=\"text/javascript\">\n");
+      out.write("        $(document).ready(function () {\n");
+      out.write("            var tpl = $(\"#treeTableTpl\").html().replace(/(\\/\\/\\<!\\-\\-)|(\\/\\/\\-\\->)/g, \"\");\n");
+      out.write("            var data = ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:toJson(list)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1));
       out.write(", rootId = \"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${not empty office.id ? office.id : '0'}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\";\n");
-      out.write("\t\t\taddRow(\"#treeTableList\", tpl, data, rootId, true);\n");
-      out.write("\t\t\t$(\"#treeTable\").treeTable({expandLevel : 5});\n");
-      out.write("\t\t});\n");
-      out.write("\t\tfunction addRow(list, tpl, data, pid, root){\n");
-      out.write("\t\t\tfor (var i=0; i<data.length; i++){\n");
-      out.write("\t\t\t\tvar row = data[i];\n");
-      out.write("\t\t\t\tif ((");
+      out.write("            addRow(\"#treeTableList\", tpl, data, rootId, true);\n");
+      out.write("            $(\"#treeTable\").treeTable({expandLevel: 5});\n");
+      out.write("        });\n");
+      out.write("        function addRow(list, tpl, data, pid, root) {\n");
+      out.write("            for (var i = 0; i < data.length; i++) {\n");
+      out.write("                var row = data[i];\n");
+      out.write("                if ((");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:jsGetVal('row.parentId')}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-      out.write(") == pid){\n");
-      out.write("\t\t\t\t\t$(list).append(Mustache.render(tpl, {\n");
-      out.write("\t\t\t\t\t\tdict: {\n");
-      out.write("\t\t\t\t\t\t\ttype: getDictLabel(");
+      out.write(") == pid) {\n");
+      out.write("                    $(list).append(Mustache.render(tpl, {\n");
+      out.write("                        dict: {\n");
+      out.write("                            type: getDictLabel(");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:toJson(fns:getDictList('sys_office_type'))}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_3));
       out.write(", row.type)\n");
-      out.write("\t\t\t\t\t\t}, pid: (root?0:pid), row: row\n");
-      out.write("\t\t\t\t\t}));\n");
-      out.write("\t\t\t\t\taddRow(list, tpl, data, row.id);\n");
-      out.write("\t\t\t\t}\n");
-      out.write("\t\t\t}\n");
-      out.write("\t\t}\n");
-      out.write("\t</script>\n");
+      out.write("                        }, pid: (root ? 0 : pid), row: row\n");
+      out.write("                    }));\n");
+      out.write("                    addRow(list, tpl, data, row.id);\n");
+      out.write("                }\n");
+      out.write("            }\n");
+      out.write("        }\n");
+      out.write("    </script>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("\t<ul class=\"nav nav-tabs\">\n");
-      out.write("\t\t<li class=\"active\"><a href=\"");
+      out.write("<ul class=\"nav nav-tabs\">\n");
+      out.write("    <li class=\"active\"><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/sys/office/list?id=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${office.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("&parentIds=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${office.parentIds}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">机构列表</a></li>\n");
-      out.write("\t\t");
+      out.write("    ");
       if (_jspx_meth_shiro_hasPermission_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t</ul>\n");
-      out.write("\t");
+      out.write("</ul>\n");
       if (_jspx_meth_sys_message_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t<table id=\"treeTable\" class=\"table table-striped table-bordered table-condensed\">\n");
-      out.write("\t\t<thead><tr><th>机构名称</th><th>归属区域</th><th>机构编码</th><th>机构类型</th><th>备注</th>");
+      out.write("<table id=\"treeTable\" class=\"table table-striped table-bordered table-condensed\">\n");
+      out.write("    <thead>\n");
+      out.write("    <tr>\n");
+      out.write("        <td>机构名称</td>\n");
+      out.write("        <td>归属区域</td>\n");
+      out.write("        <td>机构编码</td>\n");
+      out.write("        <td>机构类型</td>\n");
+      out.write("        <td>备注</td>\n");
+      out.write("        ");
       if (_jspx_meth_shiro_hasPermission_1(_jspx_page_context))
         return;
-      out.write("</tr></thead>\n");
-      out.write("\t\t<tbody id=\"treeTableList\"></tbody>\n");
-      out.write("\t</table>\n");
-      out.write("\t<script type=\"text/template\" id=\"treeTableTpl\">\n");
-      out.write("\t\t<tr id=\"{{row.id}}\" pId=\"{{pid}}\">\n");
-      out.write("\t\t\t<td><a href=\"");
+      out.write("</tr>\n");
+      out.write("    </thead>\n");
+      out.write("    <tbody id=\"treeTableList\"></tbody>\n");
+      out.write("</table>\n");
+      out.write("<script type=\"text/template\" id=\"treeTableTpl\">\n");
+      out.write("    <tr id=\"{{row.id}}\" pId=\"{{pid}}\">\n");
+      out.write("        <td><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/sys/office/form?id={{row.id}}\">{{row.name}}</a></td>\n");
-      out.write("\t\t\t<td>{{row.area.name}}</td>\n");
-      out.write("\t\t\t<td>{{row.code}}</td>\n");
-      out.write("\t\t\t<td>{{dict.type}}</td>\n");
-      out.write("\t\t\t<td>{{row.remarks}}</td>\n");
-      out.write("\t\t\t");
+      out.write("        <td>{{row.area.name}}</td>\n");
+      out.write("        <td>{{row.code}}</td>\n");
+      out.write("        <td>{{dict.type}}</td>\n");
+      out.write("        <td>{{row.remarks}}</td>\n");
+      out.write("        ");
       if (_jspx_meth_shiro_hasPermission_2(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t</tr>\n");
-      out.write("\t</script>\n");
+      out.write("    </tr>\n");
+      out.write("</script>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -239,11 +246,13 @@ static {
     int _jspx_eval_shiro_hasPermission_0 = _jspx_th_shiro_hasPermission_0.doStartTag();
     if (_jspx_eval_shiro_hasPermission_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<li><a href=\"");
+        out.write("\n");
+        out.write("        <li><a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/sys/office/form?parent.id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${office.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\">机构添加</a></li>");
+        out.write("\">机构添加</a></li>\n");
+        out.write("    ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -284,7 +293,9 @@ static {
     int _jspx_eval_shiro_hasPermission_1 = _jspx_th_shiro_hasPermission_1.doStartTag();
     if (_jspx_eval_shiro_hasPermission_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<th>操作</th>");
+        out.write("\n");
+        out.write("            <td>操作</td>\n");
+        out.write("        ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -310,17 +321,20 @@ static {
     int _jspx_eval_shiro_hasPermission_2 = _jspx_th_shiro_hasPermission_2.doStartTag();
     if (_jspx_eval_shiro_hasPermission_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<td>\n");
-        out.write("\t\t\t\t<a href=\"");
+        out.write("\n");
+        out.write("            <td>\n");
+        out.write("                <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/sys/office/form?id={{row.id}}\">修改</a>\n");
-        out.write("\t\t\t\t<a href=\"");
+        out.write("                <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/sys/office/delete?id={{row.id}}\" onclick=\"return confirmx('要删除该机构及所有子机构项吗？', this.href)\">删除</a>\n");
-        out.write("\t\t\t\t<a href=\"");
+        out.write("/sys/office/delete?id={{row.id}}\"\n");
+        out.write("                   onclick=\"return confirmx('要删除该机构及所有子机构项吗？', this.href)\">删除</a>\n");
+        out.write("                <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/sys/office/form?parent.id={{row.id}}\">添加下级机构</a> \n");
-        out.write("\t\t\t</td>");
+        out.write("/sys/office/form?parent.id={{row.id}}\">添加下级机构</a>\n");
+        out.write("            </td>\n");
+        out.write("        ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
