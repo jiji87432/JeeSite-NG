@@ -373,7 +373,7 @@ static {
     _jspx_th_form_form_0.setModelAttribute("user");
     _jspx_th_form_form_0.setAction((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}/sys/user/list", java.lang.String.class, (PageContext)_jspx_page_context, null));
     _jspx_th_form_form_0.setMethod("post");
-    _jspx_th_form_form_0.setDynamicAttribute(null, "class", new String("col-md-12"));
+    _jspx_th_form_form_0.setDynamicAttribute(null, "class", new String("col-md-12 form-horizontal"));
     _jspx_th_form_form_0.setDynamicAttribute(null, "role", new String("form"));
     int[] _jspx_push_body_count_form_form_0 = new int[] { 0 };
     try {
@@ -391,32 +391,48 @@ static {
           if (_jspx_meth_sys_tableSort_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
             return true;
           out.write("\n");
-          out.write("    <div class=\"form-group col-sm-6\">\n");
-          out.write("        归属公司：\n");
-          out.write("        ");
+          out.write("    <div class=\"row\">\n");
+          out.write("        <div class=\"form-group col-sm-6\">\n");
+          out.write("            <label class=\"col-sm-4 control-label\">归属公司：</label>\n");
+          out.write("            <div class=\"col-sm-8\">\n");
+          out.write("                ");
           if (_jspx_meth_sys_treeselect_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
             return true;
-          out.write("\n");
-          out.write("    </div>\n");
-          out.write("    <div class=\"form-group col-sm-6\">\n");
-          out.write("        <label>登录名：</label>\n");
-          out.write("        ");
+          out.write("</div>\n");
+          out.write("        </div>\n");
+          out.write("        <div class=\"form-group col-sm-6\">\n");
+          out.write("            <label class=\"col-sm-4 control-label\">登录名：</label>\n");
+          out.write("            <div class=\"col-sm-8\">\n");
+          out.write("                ");
           if (_jspx_meth_form_input_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
             return true;
           out.write("\n");
+          out.write("            </div>\n");
+          out.write("        </div>\n");
           out.write("    </div>\n");
-          out.write("    <div class=\"form-group col-sm-4\"><label>归属部门：</label>\n");
-          out.write("        ");
+          out.write("    <div class=\"row\">\n");
+          out.write("        <div class=\"form-group col-sm-6\">\n");
+          out.write("            <label class=\"col-sm-4 control-label\">归属部门：</label>\n");
+          out.write("            <div class=\"col-sm-8\">\n");
+          out.write("                ");
           if (_jspx_meth_sys_treeselect_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
             return true;
           out.write("\n");
-          out.write("    </div>\n");
-          out.write("    <div class=\"form-group col-sm-4\"><label>姓&nbsp;&nbsp;&nbsp;名：</label>");
+          out.write("            </div>\n");
+          out.write("        </div>\n");
+          out.write("        <div class=\"form-group col-sm-6\">\n");
+          out.write("            <label class=\"col-sm-4 control-label\">姓&nbsp;&nbsp;&nbsp;名：</label>\n");
+          out.write("            <div class=\"col-sm-8\">\n");
+          out.write("                ");
           if (_jspx_meth_form_input_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
             return true;
-          out.write("</div>\n");
-          out.write("    <div class=\"form-group col-sm-4\"><input id=\"btnSubmit\" class=\"btn btn-primary\" type=\"submit\" value=\"查询\"\n");
-          out.write("                                            onclick=\"return page();\"/>\n");
+          out.write("\n");
+          out.write("            </div>\n");
+          out.write("        </div>\n");
+          out.write("    </div>\n");
+          out.write("    <div class=\"row pull-right\">\n");
+          out.write("        <input id=\"btnSubmit\" class=\"btn btn-primary\" type=\"submit\" value=\"查询\"\n");
+          out.write("               onclick=\"return page();\"/>\n");
           out.write("        <input id=\"btnExport\" class=\"btn btn-primary\" type=\"button\" value=\"导出\"/>\n");
           out.write("        <input id=\"btnImport\" class=\"btn btn-primary\" type=\"button\" value=\"导入\"/>\n");
           out.write("    </div>\n");

@@ -26,29 +26,45 @@
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
     <sys:tableSort id="orderBy" name="orderBy" value="${page.orderBy}" callback="page();"/>
-    <div class="form-group col-sm-6">
-        归属公司：
-        <sys:treeselect id="company" name="company.id" value="${user.company.id}"
-                        labelName="company.name" labelValue="${user.company.name}"
-                        title="公司" url="/sys/office/treeData?type=1" cssClass="form-control"
-                        allowClear="true"/>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">归属公司：</label>
+            <div class="col-sm-8">
+                <sys:treeselect id="company" name="company.id" value="${user.company.id}"
+                                labelName="company.name" labelValue="${user.company.name}"
+                                title="公司" url="/sys/office/treeData?type=1" cssClass="form-control"
+                                allowClear="true"/></div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">登录名：</label>
+            <div class="col-sm-8">
+                <form:input path="loginName" htmlEscape="false" maxlength="50"
+                            class="form-control"/>
+            </div>
+        </div>
     </div>
-    <div class="form-group col-sm-6">
-        <label>登录名：</label>
-        <form:input path="loginName" htmlEscape="false" maxlength="50"
-                    class="form-control"/>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">归属部门：</label>
+            <div class="col-sm-8">
+                <sys:treeselect id="office" name="office.id"
+                                value="${user.office.id}" labelName="office.name"
+                                labelValue="${user.office.name}" title="部门" url="/sys/office/treeData?type=2"
+                                cssClass="form-control" allowClear="true" notAllowSelectParent="true"/>
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">姓&nbsp;&nbsp;&nbsp;名：</label>
+            <div class="col-sm-8">
+                <form:input path="name" htmlEscape="false"
+                            maxlength="50"
+                            class="form-control"/>
+            </div>
+        </div>
     </div>
-    <div class="form-group col-sm-4"><label>归属部门：</label>
-        <sys:treeselect id="office" name="office.id"
-                        value="${user.office.id}" labelName="office.name"
-                        labelValue="${user.office.name}" title="部门" url="/sys/office/treeData?type=2"
-                        cssClass="form-control" allowClear="true" notAllowSelectParent="true"/>
-    </div>
-    <div class="form-group col-sm-4"><label>姓&nbsp;&nbsp;&nbsp;名：</label><form:input path="name" htmlEscape="false"
-                                                                                     maxlength="50"
-                                                                                     class="form-control"/></div>
-    <div class="form-group col-sm-4"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"
-                                            onclick="return page();"/>
+    <div class="row pull-right">
+        <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"
+               onclick="return page();"/>
         <input id="btnExport" class="btn btn-primary" type="button" value="导出"/>
         <input id="btnImport" class="btn btn-primary" type="button" value="导入"/>
     </div>
