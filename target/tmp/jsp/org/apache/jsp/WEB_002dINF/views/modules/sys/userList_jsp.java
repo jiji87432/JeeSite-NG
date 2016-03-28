@@ -373,7 +373,7 @@ static {
     _jspx_th_form_form_0.setModelAttribute("user");
     _jspx_th_form_form_0.setAction((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}/sys/user/list", java.lang.String.class, (PageContext)_jspx_page_context, null));
     _jspx_th_form_form_0.setMethod("post");
-    _jspx_th_form_form_0.setDynamicAttribute(null, "class", new String("col-md-12 form-horizontal"));
+    _jspx_th_form_form_0.setDynamicAttribute(null, "class", new String("col-md-12 form-horizontal well"));
     _jspx_th_form_form_0.setDynamicAttribute(null, "role", new String("form"));
     int[] _jspx_push_body_count_form_form_0 = new int[] { 0 };
     try {
@@ -430,7 +430,7 @@ static {
           out.write("            </div>\n");
           out.write("        </div>\n");
           out.write("    </div>\n");
-          out.write("    <div class=\"row pull-right\">\n");
+          out.write("    <div class=\"row col-sm-offset-9\">\n");
           out.write("        <input id=\"btnSubmit\" class=\"btn btn-primary\" type=\"submit\" value=\"查询\"\n");
           out.write("               onclick=\"return page();\"/>\n");
           out.write("        <input id=\"btnExport\" class=\"btn btn-primary\" type=\"button\" value=\"导出\"/>\n");

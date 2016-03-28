@@ -22,7 +22,7 @@
     </shiro:hasPermission>
 </ul>
 <form:form id="searchForm" modelAttribute="user" action="${ctx}/sys/user/list" method="post"
-           class="col-md-12 form-horizontal" role="form">
+           class="col-md-12 form-horizontal well" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
     <sys:tableSort id="orderBy" name="orderBy" value="${page.orderBy}" callback="page();"/>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <div class="row pull-right">
+    <div class="row col-sm-offset-9">
         <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"
                onclick="return page();"/>
         <input id="btnExport" class="btn btn-primary" type="button" value="导出"/>
