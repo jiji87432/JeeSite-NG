@@ -32,7 +32,7 @@
            data-msg-required="${dataMsgRequired}"
            class="${cssClass}" style="${cssStyle} float: left"/><a id="${id}Button" href="javascript:"
                                                                    class="btn btn-info ${disabled} ${hideBtn ? 'hide' : ''}"
-                                                                   style="${smallBtn?'padding:4px 2px;':''}">选择<i
+                                                                   style="${smallBtn?'padding:4px 2px;':''}">&nbsp;<i
         class="icon-search"></i>&nbsp;</a>&nbsp;&nbsp;
 </div>
 <script type="text/javascript">

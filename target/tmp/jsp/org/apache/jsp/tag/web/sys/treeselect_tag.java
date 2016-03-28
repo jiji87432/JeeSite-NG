@@ -407,7 +407,7 @@ static {
       out.write("\"\n");
       out.write("                                                                   style=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${smallBtn?'padding:4px 2px;':''}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\">选择<i\n");
+      out.write("\">&nbsp;<i\n");
       out.write("        class=\"icon-search\"></i>&nbsp;</a>&nbsp;&nbsp;\n");
       out.write("</div>\n");
       out.write("<script type=\"text/javascript\">\n");
