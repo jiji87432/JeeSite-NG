@@ -372,59 +372,62 @@ static {
       out.write("\n");
       out.write("\n");
       out.write("<div class=\"input-append\">\n");
-      out.write("\t<input id=\"");
+      out.write("    <input id=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("Id\" name=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\" class=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cssClass}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("\" type=\"hidden\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${value}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("\"/>\n");
-      out.write("\t<input id=\"");
+      out.write("    <input id=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("Name\" name=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${labelName}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write('"');
       out.write(' ');
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${allowInput?'':'readonly=\"readonly\"'}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write(" type=\"text\" value=\"");
+      out.write(" type=\"text\"\n");
+      out.write("           value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${labelValue}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\" data-msg-required=\"");
+      out.write("\"\n");
+      out.write("           data-msg-required=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${dataMsgRequired}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("\"\n");
-      out.write("\t\tclass=\"");
+      out.write("           class=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cssClass}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("\" style=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cssStyle}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\"/><a id=\"");
+      out.write(" float: left\"/><a id=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("Button\" href=\"javascript:\" class=\"btn ");
+      out.write("Button\" href=\"javascript:\"\n");
+      out.write("                                                                   class=\"btn btn-info ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${disabled}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write(' ');
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${hideBtn ? 'hide' : ''}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\" style=\"");
+      out.write("\"\n");
+      out.write("                                                                   style=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${smallBtn?'padding:4px 2px;':''}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\">&nbsp;<i class=\"icon-search\"></i>&nbsp;</a>&nbsp;&nbsp;\n");
+      out.write("\">选择<i\n");
+      out.write("        class=\"icon-search\"></i>&nbsp;</a>&nbsp;&nbsp;\n");
       out.write("</div>\n");
       out.write("<script type=\"text/javascript\">\n");
-      out.write("\t$(\"#");
+      out.write("    $(\"#");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("Button, #");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("Name\").click(function(){\n");
-      out.write("\t\t// 是否限制选择，如果限制，设置为disabled\n");
-      out.write("\t\tif ($(\"#");
+      out.write("Name\").click(function () {\n");
+      out.write("        // 是否限制选择，如果限制，设置为disabled\n");
+      out.write("        if ($(\"#");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("Button\").hasClass(\"disabled\")){\n");
-      out.write("\t\t\treturn true;\n");
-      out.write("\t\t}\n");
-      out.write("\t\t// 正常打开\t\n");
-      out.write("\t\ttop.$.jBox.open(\"iframe:");
+      out.write("Button\").hasClass(\"disabled\")) {\n");
+      out.write("            return true;\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("        var url = '");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("/tag/treeselect?url=\"+encodeURIComponent(\"");
+      out.write("/tag/treeselect?url=' + encodeURIComponent(\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${url}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\")+\"&module=");
+      out.write("\") + '&module=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${module}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("&checked=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${checked}", java.lang.String.class, (PageContext)this.getJspContext(), null));
@@ -432,62 +435,69 @@ static {
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${extId}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("&isAll=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${isAll}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\", \"选择");
+      out.write("';\n");
+      out.write("        var d = top.dialog({\n");
+      out.write("            title: '选择");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${title}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\", 300, 420, {\n");
-      out.write("\t\t\tajaxData:{selectIds: $(\"#");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("Id\").val()},buttons:{\"确定\":\"ok\", ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${allowClear?\"\\\"清除\\\":\\\"clear\\\", \":\"\"}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\"关闭\":true}, submit:function(v, h, f){\n");
-      out.write("\t\t\t\tif (v==\"ok\"){\n");
-      out.write("\t\t\t\t\tvar tree = h.find(\"iframe\")[0].contentWindow.tree;//h.find(\"iframe\").contents();\n");
-      out.write("\t\t\t\t\tvar ids = [], names = [], nodes = [];\n");
-      out.write("\t\t\t\t\tif (\"");
+      out.write("',\n");
+      out.write("            url: url,\n");
+      out.write("            height:420,\n");
+      out.write("            width:300,\n");
+      out.write("            okValue: '确定',\n");
+      out.write("            ok: function () {\n");
+      out.write("                debugger;\n");
+      out.write("                var iframeWindow = this.iframeNode.contentWindow;\n");
+      out.write("                var tree = iframeWindow.tree;\n");
+      out.write("                var ids = [], names = [], nodes = [];\n");
+      out.write("                if (\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${checked}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("\" == \"true\"){\n");
-      out.write("\t\t\t\t\t\tnodes = tree.getCheckedNodes(true);\n");
-      out.write("\t\t\t\t\t}else{\n");
-      out.write("\t\t\t\t\t\tnodes = tree.getSelectedNodes();\n");
-      out.write("\t\t\t\t\t}\n");
-      out.write("\t\t\t\t\tfor(var i=0; i<nodes.length; i++) {//");
+      out.write("\" == \"true\") {\n");
+      out.write("                    nodes = tree.getCheckedNodes(true);\n");
+      out.write("                } else {\n");
+      out.write("                    nodes = tree.getSelectedNodes();\n");
+      out.write("                }\n");
+      out.write("                for (var i = 0; i < nodes.length; i++) {\n");
+      out.write("                    ");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
+      out.write("\n");
+      out.write("                    ");
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
+      out.write("\n");
+      out.write("                    ");
       if (_jspx_meth_c_if_2(_jspx_page_context))
         return;
+      out.write("\n");
+      out.write("                    ");
       if (_jspx_meth_c_if_3(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t\t\t\t\tids.push(nodes[i].id);\n");
-      out.write("\t\t\t\t\t\tnames.push(nodes[i].name);//");
+      out.write("                    ids.push(nodes[i].id);\n");
+      out.write("                    names.push(nodes[i].name);\n");
+      out.write("                    ");
       if (_jspx_meth_c_if_4(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t\t\t\t}\n");
-      out.write("\t\t\t\t\t$(\"#");
+      out.write("                }\n");
+      out.write("                $(\"#");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("Id\").val(ids.join(\",\").replace(/u_/ig,\"\"));\n");
-      out.write("\t\t\t\t\t$(\"#");
+      out.write("Id\").val(ids.join(\",\").replace(/u_/ig, \"\"));\n");
+      out.write("                $(\"#");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
       out.write("Name\").val(names.join(\",\"));\n");
-      out.write("\t\t\t\t}//");
-      if (_jspx_meth_c_if_5(_jspx_page_context))
-        return;
       out.write("\n");
-      out.write("\t\t\t\tif(typeof ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("TreeselectCallBack == 'function'){\n");
-      out.write("\t\t\t\t\t");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-      out.write("TreeselectCallBack(v, h, f);\n");
-      out.write("\t\t\t\t}\n");
-      out.write("\t\t\t}, loaded:function(h){\n");
-      out.write("\t\t\t\t$(\".jbox-content\", top.document).css(\"overflow-y\",\"hidden\");\n");
-      out.write("\t\t\t}\n");
-      out.write("\t\t});\n");
-      out.write("\t});\n");
+      out.write("                ");
+      out.write("\n");
+      out.write("                ");
+      out.write("\n");
+      out.write("            },\n");
+      out.write("            cancelValue: '取消',\n");
+      out.write("            cancel: function () {\n");
+      out.write("            }\n");
+      out.write("        });\n");
+      out.write("        d.showModal();\n");
+      out.write("    });\n");
       out.write("</script>");
     } catch( Throwable t ) {
       if( t instanceof SkipPageException )
@@ -553,9 +563,10 @@ static {
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\tif (nodes[i].isParent){\n");
-        out.write("\t\t\t\t\t\t\tcontinue; // 如果为复选框选择，则过滤掉父节点\n");
-        out.write("\t\t\t\t\t\t}//");
+        out.write("                    if (nodes[i].isParent) {\n");
+        out.write("                        continue; // 如果为复选框选择，则过滤掉父节点\n");
+        out.write("                    }\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -581,10 +592,11 @@ static {
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\tif (nodes[i].level == 0){\n");
-        out.write("\t\t\t\t\t\t\ttop.$.jBox.tip(\"不能选择根节点（\"+nodes[i].name+\"）请重新选择。\");\n");
-        out.write("\t\t\t\t\t\t\treturn false;\n");
-        out.write("\t\t\t\t\t\t}//");
+        out.write("                    if (nodes[i].level == 0) {\n");
+        out.write("                        top.alert(\"不能选择根节点（\" + nodes[i].name + \"）请重新选择。\");\n");
+        out.write("                        return false;\n");
+        out.write("                    }\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -610,10 +622,11 @@ static {
     if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\tif (nodes[i].isParent){\n");
-        out.write("\t\t\t\t\t\t\ttop.$.jBox.tip(\"不能选择父节点（\"+nodes[i].name+\"）请重新选择。\");\n");
-        out.write("\t\t\t\t\t\t\treturn false;\n");
-        out.write("\t\t\t\t\t\t}//");
+        out.write("                    if (nodes[i].isParent) {\n");
+        out.write("                        top.alert(\"不能选择父节点（\" + nodes[i].name + \"）请重新选择。\");\n");
+        out.write("                        return false;\n");
+        out.write("                    }\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -639,15 +652,16 @@ static {
     if (_jspx_eval_c_if_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\tif (nodes[i].module == \"\"){\n");
-        out.write("\t\t\t\t\t\t\ttop.$.jBox.tip(\"不能选择公共模型（\"+nodes[i].name+\"）请重新选择。\");\n");
-        out.write("\t\t\t\t\t\t\treturn false;\n");
-        out.write("\t\t\t\t\t\t}else if (nodes[i].module != \"");
+        out.write("                    if (nodes[i].module == \"\") {\n");
+        out.write("                        top.alert(\"不能选择公共模型（\" + nodes[i].name + \"）请重新选择。\");\n");
+        out.write("                        return false;\n");
+        out.write("                    } else if (nodes[i].module != \"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${module}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-        out.write("\"){\n");
-        out.write("\t\t\t\t\t\t\ttop.$.jBox.tip(\"不能选择当前栏目以外的栏目模型，请重新选择。\");\n");
-        out.write("\t\t\t\t\t\t\treturn false;\n");
-        out.write("\t\t\t\t\t\t}//");
+        out.write("\") {\n");
+        out.write("                        top.alert(\"不能选择当前栏目以外的栏目模型，请重新选择。\");\n");
+        out.write("                        return false;\n");
+        out.write("                    }\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_3.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -673,7 +687,8 @@ static {
     if (_jspx_eval_c_if_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\tbreak; // 如果为非复选框选择，则返回第一个选择  ");
+        out.write("                    break; // 如果为非复选框选择，则返回第一个选择\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_4.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -684,39 +699,6 @@ static {
       throw new SkipPageException();
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_4);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_if_5(PageContext _jspx_page_context)
-          throws Throwable {
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_5 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_5.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_5.setParent(null);
-    _jspx_th_c_if_5.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${allowClear}", java.lang.Boolean.class, (PageContext)this.getJspContext(), null)).booleanValue());
-    int _jspx_eval_c_if_5 = _jspx_th_c_if_5.doStartTag();
-    if (_jspx_eval_c_if_5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\n");
-        out.write("\t\t\t\telse if (v==\"clear\"){\n");
-        out.write("\t\t\t\t\t$(\"#");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-        out.write("Id\").val(\"\");\n");
-        out.write("\t\t\t\t\t$(\"#");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${id}", java.lang.String.class, (PageContext)this.getJspContext(), null));
-        out.write("Name\").val(\"\");\n");
-        out.write("                }//");
-        int evalDoAfterBody = _jspx_th_c_if_5.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_if_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_5);
-      throw new SkipPageException();
-    }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_5);
     return false;
   }
 }

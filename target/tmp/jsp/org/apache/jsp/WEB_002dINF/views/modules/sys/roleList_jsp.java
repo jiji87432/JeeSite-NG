@@ -78,8 +78,8 @@ static {
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write(']');
-      out.write('\n');
+      out.write("]\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -98,33 +98,37 @@ static {
       out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("\t<title>角色管理</title>\n");
-      out.write("\t<meta name=\"decorator\" content=\"default\"/>\n");
+      out.write("    <title>角色管理</title>\n");
+      out.write("    <meta name=\"decorator\" content=\"default\"/>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("\t<ul class=\"nav nav-tabs\">\n");
-      out.write("\t\t<li class=\"active\"><a href=\"");
+      out.write("<ul class=\"nav nav-tabs\">\n");
+      out.write("    <li class=\"active\"><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/sys/role/\">角色列表</a></li>\n");
-      out.write("\t\t");
+      out.write("    ");
       if (_jspx_meth_shiro_hasPermission_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t</ul>\n");
-      out.write("\t");
+      out.write("</ul>\n");
       if (_jspx_meth_sys_message_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t<table id=\"contentTable\" class=\"table table-striped table-bordered table-condensed\">\n");
-      out.write("\t\t<tr><th>角色名称</th><th>英文名称</th><th>归属机构</th><th>数据范围</th>");
+      out.write("<table id=\"contentTable\" class=\"table table-hover\">\n");
+      out.write("    <tr>\n");
+      out.write("        <td>角色名称</td>\n");
+      out.write("        <td>英文名称</td>\n");
+      out.write("        <td>归属机构</td>\n");
+      out.write("        <td>数据范围</td>\n");
+      out.write("        ");
       if (_jspx_meth_shiro_hasPermission_1(_jspx_page_context))
         return;
       out.write("</tr>\n");
-      out.write("\t\t");
+      out.write("    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t</table>\n");
+      out.write("</table>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -190,9 +194,11 @@ static {
     int _jspx_eval_shiro_hasPermission_0 = _jspx_th_shiro_hasPermission_0.doStartTag();
     if (_jspx_eval_shiro_hasPermission_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<li><a href=\"");
+        out.write("\n");
+        out.write("        <li><a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/sys/role/form\">角色添加</a></li>");
+        out.write("/sys/role/form\">角色添加</a></li>\n");
+        out.write("    ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -233,7 +239,9 @@ static {
     int _jspx_eval_shiro_hasPermission_1 = _jspx_th_shiro_hasPermission_1.doStartTag();
     if (_jspx_eval_shiro_hasPermission_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<th>操作</th>");
+        out.write("\n");
+        out.write("            <td>操作</td>\n");
+        out.write("        ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -263,31 +271,31 @@ static {
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("\t\t\t<tr>\n");
-          out.write("\t\t\t\t<td><a href=\"form?id=");
+          out.write("        <tr>\n");
+          out.write("            <td><a href=\"form?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></td>\n");
-          out.write("\t\t\t\t<td><a href=\"form?id=");
+          out.write("            <td><a href=\"form?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.enname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></td>\n");
-          out.write("\t\t\t\t<td>");
+          out.write("            <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.office.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("\t\t\t\t<td>");
+          out.write("            <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fns:getDictLabel(role.dataScope, 'sys_data_scope', '无')}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_1));
           out.write("</td>\n");
-          out.write("\t\t\t\t");
+          out.write("            ");
           if (_jspx_meth_shiro_hasPermission_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
-          out.write("\t\n");
-          out.write("\t\t\t</tr>\n");
-          out.write("\t\t");
+          out.write("\n");
+          out.write("        </tr>\n");
+          out.write("    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -319,22 +327,25 @@ static {
     int _jspx_eval_shiro_hasPermission_2 = _jspx_th_shiro_hasPermission_2.doStartTag();
     if (_jspx_eval_shiro_hasPermission_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<td>\n");
-        out.write("\t\t\t\t\t<a href=\"");
+        out.write("\n");
+        out.write("                <td>\n");
+        out.write("                    <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/sys/role/assign?id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\">分配</a>\n");
-        out.write("\t\t\t\t\t");
+        out.write("                    ");
         if (_jspx_meth_c_if_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_hasPermission_2, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
           return true;
         out.write("\n");
-        out.write("\t\t\t\t\t<a href=\"");
+        out.write("                    <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/sys/role/delete?id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\" onclick=\"return confirmx('确认要删除该角色吗？', this.href)\">删除</a>\n");
-        out.write("\t\t\t\t</td>");
+        out.write("\"\n");
+        out.write("                       onclick=\"return confirmx('确认要删除该角色吗？', this.href)\">删除</a>\n");
+        out.write("                </td>\n");
+        out.write("            ");
         int evalDoAfterBody = _jspx_th_shiro_hasPermission_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -361,12 +372,12 @@ static {
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t\t\t\t<a href=\"");
+        out.write("                        <a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/sys/role/form?id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${role.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\">修改</a>\n");
-        out.write("\t\t\t\t\t");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
