@@ -60,9 +60,10 @@
 </head>
 <body>
 	<div class="accordion-group">
-	    <div class="accordion-heading">
-	    	<a class="accordion-toggle">栏目列表</a>
-	    </div>
+		<div class="box-header with-border">
+			<h3 class="box-title">组织机构<i class="icon-refresh pull-right"
+										 onclick="refreshTree();"></i></h3>
+		</div>
 	    <div class="accordion-body">
 			<div class="accordion-inner">
 				<div id="tree" class="ztree"></div>

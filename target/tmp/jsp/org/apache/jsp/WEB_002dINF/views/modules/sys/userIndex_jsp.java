@@ -1,10 +1,10 @@
-package org.apache.jsp.WEB_002dINF.views.modules.cms;
+package org.apache.jsp.WEB_002dINF.views.modules.sys;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class cmsIndex_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class userIndex_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
 static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_0;
@@ -18,9 +18,11 @@ static {
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(2);
+    _jspx_dependants = new java.util.Vector(4);
     _jspx_dependants.add("/WEB-INF/views/include/taglib.jsp");
     _jspx_dependants.add("/WEB-INF/views/include/adminlte.jsp");
+    _jspx_dependants.add("/WEB-INF/views/include/treeview.jsp");
+    _jspx_dependants.add("/WEB-INF/tags/sys/message.tag");
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
@@ -82,7 +84,7 @@ static {
       out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("    <title>内容管理</title>\n");
+      out.write("    <title>用户管理</title>\n");
       out.write("    <meta name=\"decorator\" content=\"default\"/>\n");
       out.write("    ");
       out.write("\n");
@@ -172,38 +174,70 @@ static {
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("';</script>");
       out.write("\n");
+      out.write("    ");
+      out.write("<link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/zTree/css/zTreeStyle/metro.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("<script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/zTree/js/jquery.ztree.all-3.5.min.js\" type=\"text/javascript\"></script>");
+      out.write("\n");
       out.write("</head>\n");
       out.write("<body>\n");
+      if (_jspx_meth_sys_message_0(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("<div id=\"content\" class=\"row-fluid\">\n");
       out.write("\n");
       out.write("    <div class=\"box box-primary\" id=\"left\">\n");
-      out.write("        <iframe id=\"cmsMenuFrame\" name=\"cmsMenuFrame\" src=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/cms/tree\" style=\"overflow:visible;\"\n");
-      out.write("                scrolling=\"yes\" frameborder=\"no\" width=\"100%\"></iframe>\n");
+      out.write("        <div class=\"box-header with-border\">\n");
+      out.write("            <h3 class=\"box-title\">组织机构<i class=\"icon-refresh pull-right\"\n");
+      out.write("                                                                     onclick=\"refreshTree();\"></i></h3>\n");
+      out.write("        </div>\n");
+      out.write("        <div id=\"ztree\" class=\"ztree\"></div>\n");
       out.write("    </div>\n");
       out.write("    <div id=\"openClose\" class=\"close\">&nbsp;</div>\n");
       out.write("    <div id=\"right\">\n");
-      out.write("        <iframe id=\"cmsMainFrame\" name=\"cmsMainFrame\" src=\"");
+      out.write("        <iframe id=\"officeContent\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/cms/none\" style=\"overflow:visible;\"\n");
-      out.write("                scrolling=\"yes\" frameborder=\"no\" width=\"100%\"></iframe>\n");
+      out.write("/sys/user/list\" width=\"100%\" height=\"91%\"\n");
+      out.write("                frameborder=\"0\"></iframe>\n");
       out.write("    </div>\n");
       out.write("</div>\n");
-      out.write("\n");
       out.write("<script type=\"text/javascript\">\n");
-      out.write("    var leftWidth = \"160\"; // 左侧窗口大小\n");
+      out.write("    var setting = {\n");
+      out.write("        data: {simpleData: {enable: true, idKey: \"id\", pIdKey: \"pId\", rootPId: '0'}},\n");
+      out.write("        callback: {\n");
+      out.write("            onClick: function (event, treeId, treeNode) {\n");
+      out.write("                var id = treeNode.id == '0' ? '' : treeNode.id;\n");
+      out.write("                $('#officeContent').attr(\"src\", \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/sys/user/list?office.id=\" + id + \"&office.name=\" + treeNode.name);\n");
+      out.write("            }\n");
+      out.write("        }\n");
+      out.write("    };\n");
+      out.write("\n");
+      out.write("    function refreshTree() {\n");
+      out.write("        $.getJSON(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/sys/office/treeData\", function (data) {\n");
+      out.write("            $.fn.zTree.init($(\"#ztree\"), setting, data).expandAll(true);\n");
+      out.write("        });\n");
+      out.write("    }\n");
+      out.write("    refreshTree();\n");
+      out.write("\n");
+      out.write("    var leftWidth = 180; // 左侧窗口大小\n");
+      out.write("    var htmlObj = $(\"html\"), mainObj = $(\"#main\");\n");
+      out.write("    var frameObj = $(\"#left, #openClose, #right, #right iframe\");\n");
       out.write("    function wSize() {\n");
       out.write("        var strs = getWindowSize().toString().split(\",\");\n");
-      out.write("        $(\"#cmsMenuFrame, #cmsMainFrame, #openClose\").height(strs[0] - 5);\n");
-      out.write("        $(\"#right\").width($(\"body\").width() - $(\"#left\").width() - $(\"#openClose\").width() - 20);\n");
+      out.write("        htmlObj.css({\"overflow-x\": \"hidden\", \"overflow-y\": \"hidden\"});\n");
+      out.write("        mainObj.css(\"width\", \"auto\");\n");
+      out.write("        frameObj.height(strs[0] - 5);\n");
+      out.write("        var leftWidth = ($(\"#left\").width() < 0 ? 0 : $(\"#left\").width());\n");
+      out.write("        $(\"#right\").width($(\"#content\").width() - leftWidth - $(\"#openClose\").width() - 5);\n");
+      out.write("        $(\".ztree\").width(leftWidth - 10).height(frameObj.height() - 46);\n");
       out.write("    }\n");
-      out.write("    // 鼠标移动到边界自动弹出左侧菜单\n");
-      out.write("    $(\"#openClose\").mouseover(function () {\n");
-      out.write("        if ($(this).hasClass(\"open\")) {\n");
-      out.write("            $(this).click();\n");
-      out.write("        }\n");
-      out.write("    });\n");
       out.write("</script>\n");
       out.write("<script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ctxStatic}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -258,6 +292,21 @@ static {
       return true;
     }
     _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_sys_message_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  sys:message
+    org.apache.jsp.tag.web.sys.message_tag _jspx_th_sys_message_0 = new org.apache.jsp.tag.web.sys.message_tag();
+    if (_jspx_resourceInjector != null) {
+      _jspx_resourceInjector.inject(_jspx_th_sys_message_0      );
+    }
+    _jspx_th_sys_message_0.setJspContext(_jspx_page_context);
+    _jspx_th_sys_message_0.setContent((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${message}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_sys_message_0.doTag();
     return false;
   }
 }

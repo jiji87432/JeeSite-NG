@@ -142,9 +142,10 @@ static {
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t<div class=\"accordion-group\">\r\n");
-      out.write("\t    <div class=\"accordion-heading\">\r\n");
-      out.write("\t    \t<a class=\"accordion-toggle\">栏目列表</a>\r\n");
-      out.write("\t    </div>\r\n");
+      out.write("\t\t<div class=\"box-header with-border\">\r\n");
+      out.write("\t\t\t<h3 class=\"box-title\">组织机构<i class=\"icon-refresh pull-right\"\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t onclick=\"refreshTree();\"></i></h3>\r\n");
+      out.write("\t\t</div>\r\n");
       out.write("\t    <div class=\"accordion-body\">\r\n");
       out.write("\t\t\t<div class=\"accordion-inner\">\r\n");
       out.write("\t\t\t\t<div id=\"tree\" class=\"ztree\"></div>\r\n");
