@@ -78,6 +78,6 @@
     </c:forEach>
     </tbody>
 </table>
-<div class="pagination">${page}</div>
+<div class="box-tools">${page}</div>
 </body>
 </html>

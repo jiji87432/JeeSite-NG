@@ -22,7 +22,7 @@
     </shiro:hasPermission>
 </ul>
 <form:form id="searchForm" modelAttribute="user" action="${ctx}/sys/user/list" method="post"
-           class="col-md-12 form-horizontal well" role="form">
+           class="row form-horizontal well" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
     <sys:tableSort id="orderBy" name="orderBy" value="${page.orderBy}" callback="page();"/>
@@ -105,7 +105,7 @@
     </c:forEach>
     </tbody>
 </table>
-<div class="pagination">${page}</div>
+<div class="box-tools">${page}</div>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btnExport").click(function () {
