@@ -4,6 +4,7 @@
 <head>
     <title>文章管理</title>
     <meta name="decorator" content="default"/>
+    <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
     <script type="text/javascript">
         function viewComment(href) {
             top.$.jBox.open('iframe:' + href, '查看评论', $(top.document).width() - 220, $(top.document).height() - 120, {
@@ -34,30 +35,55 @@
     </shiro:hasPermission>
 </ul>
 <form:form id="searchForm" modelAttribute="article" action="${ctx}/cms/article/" method="post"
-           class="breadcrumb form-search">
+           class="row form-horizontal well" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-    <label>栏目：</label><sys:treeselect id="category" name="category.id" value="${article.category.id}"
-                                      labelName="category.name" labelValue="${article.category.name}"
-                                      title="栏目" url="/cms/category/treeData" module="article"
-                                      notAllowSelectRoot="false" cssClass="input-small"/>
-    <label>标题：</label><form:input path="title" htmlEscape="false" maxlength="50" class="input-small"/>&nbsp;
-    <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>&nbsp;&nbsp;
-    <label>状态：</label><form:radiobuttons onclick="$('#searchForm').submit();" path="delFlag"
-                                         items="${fns:getDictList('cms_del_flag')}" itemLabel="label" itemValue="value"
-                                         htmlEscape="false"/>
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">栏目：</label>
+            <div class="col-sm-8">
+                <sys:treeselect id="category" name="category.id" value="${article.category.id}"
+                                labelName="category.name" labelValue="${article.category.name}"
+                                title="栏目" url="/cms/category/treeData" module="article" cssClass="form-control"
+                                notAllowSelectRoot="false" />
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">标题：</label>
+            <div class="col-sm-8">
+                <form:input path="title" htmlEscape="false" maxlength="50" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-4 control-label">状态：</label>
+            <div class="col-sm-8">
+                <form:radiobuttons onclick="$('#searchForm').submit();" path="delFlag"
+                                   items="${fns:getDictList('cms_del_flag')}" itemLabel="label" itemValue="value"
+                                   htmlEscape="false"/>
+            </div>
+        </div>
+        <div class="col-sm-offset-10">
+            <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+        </div>
+    </div>
+
+
 </form:form>
 <sys:message content="${message}"/>
-<table id="contentTable" class="table table-striped table-bordered table-condensed">
+<table id="contentTable" class="table table-hover">
     <thead>
     <tr>
-        <th>栏目</th>
-        <th>标题</th>
-        <th>权重</th>
-        <th>点击数</th>
-        <th>发布者</th>
-        <th>更新时间</th>
-        <th>操作</th>
+        <td>栏目</td>
+        <td>标题</td>
+        <td>权重</td>
+        <td>点击数</td>
+        <td>发布者</td>
+        <td>更新时间</td>
+        <td>操作</td>
     </tr>
     </thead>
     <tbody>
@@ -91,6 +117,6 @@
     </c:forEach>
     </tbody>
 </table>
-<div class="pagination">${page}</div>
+<div class="box-tools">${page}</div>
 </body>
 </html>
