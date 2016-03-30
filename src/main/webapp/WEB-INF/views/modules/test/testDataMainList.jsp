@@ -48,8 +48,7 @@
 				</form:select>
 			    </div>
             </div>
-			<li class="btns"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/></li>
-			<li class="clearfix"></li>
+			<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 
 	</form:form>
 	<sys:message content="${message}"/>
