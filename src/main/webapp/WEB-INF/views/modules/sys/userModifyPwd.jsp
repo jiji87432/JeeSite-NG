@@ -4,6 +4,7 @@
 <head>
     <title>修改密码</title>
     <meta name="decorator" content="default"/>
+    <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#oldPassword").focus();
@@ -39,27 +40,27 @@
            method="post" class="col-md-8" role="form">
     <form:hidden path="id"/>
     <sys:message content="${message}"/>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label">旧密码:</label>
         <div class="controls">
             <input id="oldPassword" name="oldPassword" type="password" value="" maxlength="50" minlength="3"
-                   class="required"/>
+                   class="form-control required"/>
             <span class="help-inline"><font color="red">*</font> </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label">新密码:</label>
         <div class="controls">
             <input id="newPassword" name="newPassword" type="password" value="" maxlength="50" minlength="3"
-                   class="required"/>
+                   class="form-control required"/>
             <span class="help-inline"><font color="red">*</font> </span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label">确认新密码:</label>
         <div class="controls">
             <input id="confirmNewPassword" name="confirmNewPassword" type="password" value="" maxlength="50"
-                   minlength="3" class="required" equalTo="#newPassword"/>
+                   minlength="3" class="form-control required" equalTo="#newPassword"/>
             <span class="help-inline"><font color="red">*</font> </span>
         </div>
     </div>
