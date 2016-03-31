@@ -26,6 +26,7 @@
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
     <sys:tableSort id="orderBy" name="orderBy" value="${page.orderBy}" callback="page();"/>
+    <div class="row">
         <div class="form-group col-sm-6">
             <label class="col-sm-4 control-label">归属公司：</label>
             <div class="col-sm-8">
