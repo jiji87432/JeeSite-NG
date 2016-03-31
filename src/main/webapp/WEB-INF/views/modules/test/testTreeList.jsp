@@ -57,11 +57,11 @@
 	<table id="treeTable" class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
-				<td>名称</td>
-				<td>排序</td>
-				<td>更新时间</td>
-				<td>备注信息</td>
-				<shiro:hasPermission name="test:testTree:edit"><td>操作</td></shiro:hasPermission>
+				<th>名称</th>
+				<th>排序</th>
+				<th>更新时间</th>
+				<th>备注信息</th>
+				<shiro:hasPermission name="test:testTree:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 		</thead>
 		<tbody id="treeTableList"></tbody>

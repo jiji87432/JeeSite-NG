@@ -12,7 +12,7 @@ import com.thinkgem.jeesite.common.persistence.TreeEntity;
 /**
  * 树结构生成Entity
  * @author ThinkGem
- * @version 2016-03-30
+ * @version 2016-03-31
  */
 public class TestTree extends TreeEntity<TestTree> {
 	

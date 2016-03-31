@@ -48,17 +48,18 @@
 				</form:select>
 			    </div>
             </div>
-			<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+			<input id="btnSubmit" class="btn btn-primary pull-right" type="submit" value="查询"/>
+
 
 	</form:form>
 	<sys:message content="${message}"/>
 	<table id="contentTable" class="table table-hover">
 		<thead>
 			<tr>
-				<td>归属用户</td>
-				<td>名称</td>
-				<td>更新时间</td>
-				<td>备注信息</td>
+				<th>归属用户</th>
+				<th>名称</th>
+				<th>更新时间</th>
+				<th>备注信息</th>
 				<shiro:hasPermission name="test:testDataMain:edit"><td>操作</td></shiro:hasPermission>
 			</tr>
 		</thead>
