@@ -4,11 +4,9 @@
 
 JES-NG是从[JeeSite](http://git.oschina.net/thinkgem/jeesite)发展出来的一个快速开发平台,旨在对Jeesite优化的基础上，提供更多的通用功能，达到尽可能减少开发工作量的目的
 
-![后台](http://git.oschina.net/guiticrown/JeeSite-NG/blob/master/picture/QQ20160331-0.png)
-![后台](http://git.oschina.net/guiticrown/JeeSite-NG/blob/master/picture/QQ20160331-1.png?dir=0&filepath=picture%2FQQ20160331-1.png&oid=28911b818f0cc4058ef4d49e8bb6a88fa8d162b9&sha=fb8a74f7bf7e6fa219b4a6677a6f8961bcd0a235)
-![前台](http://git.oschina.net/guiticrown/JeeSite-NG/blob/master/picture/QQ20160331-2.png?dir=0&filepath=picture%2FQQ20160331-2.png&oid=226573cae3851dabca68270ed8914720c0276f41&sha=fb8a74f7bf7e6fa219b4a6677a6f8961bcd0a235)
-![前台](http://git.oschina.net/guiticrown/JeeSite-NG/blob/master/picture/QQ20160331-3.png?dir=0&filepath=picture%2FQQ20160331-3.png&oid=c46c3f4c88af7489f83ef2d261bfd2d34dd1afda&sha=fb8a74f7bf7e6fa219b4a6677a6f8961bcd0a235)
-![前台](http://git.oschina.net/guiticrown/JeeSite-NG/blob/master/picture/QQ20160331-4.png?dir=0&filepath=picture%2FQQ20160331-4.png&oid=657d50a69ab9c7a549edbc3742b07d3986caef3e&sha=fb8a74f7bf7e6fa219b4a6677a6f8961bcd0a235)
+![输入图片说明](http://git.oschina.net/uploads/images/2016/0331/184631_00634e5a_8819.png "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2016/0331/184656_9a758448_8819.png "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2016/0331/184708_85d61a77_8819.png "在这里输入图片标题")
 
 ## 为什么衍生出JSE-NG
 
