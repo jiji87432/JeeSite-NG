@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ca9052-d408-4f5d-a839-c61afd7d3d24" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/picture/QQ20160331-0.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/picture/QQ20160331-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/picture/QQ20160331-2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/picture/QQ20160331-3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/picture/QQ20160331-4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="jeesite.iws" />
@@ -56,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.39497307">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <caret line="10" column="219" selection-start-line="10" selection-start-column="219" selection-end-line="10" selection-end-column="219" />
               <folding />
             </state>
           </provider>
@@ -204,20 +198,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="JeeSite-NG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeesite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JeeSite-NG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="picture" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -762,12 +742,12 @@
       <workItem from="1459158330205" duration="2151000" />
       <workItem from="1459218157316" duration="8152000" />
       <workItem from="1459323058772" duration="17222000" />
-      <workItem from="1459419078322" duration="1317000" />
+      <workItem from="1459419078322" duration="1537000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54638000" />
+    <option name="totallyTimeSpent" value="54858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="1278" height="704" extended-state="6" />
@@ -1213,7 +1193,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39497307">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <caret line="10" column="219" selection-start-line="10" selection-start-column="219" selection-end-line="10" selection-end-column="219" />
           <folding />
         </state>
       </provider>
