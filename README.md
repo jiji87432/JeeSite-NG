@@ -20,6 +20,9 @@ JES-NG是从[JeeSite](http://git.oschina.net/thinkgem/jeesite)发展出来的一
 * 提供更加多通用的功能
 * 努力建立JES-NG的社区，从而衍生出更多的实际应用
 
+## JES-NG的开发计划
+* 1.0 主要是对原有功能及界面进行调整,整合一些图表等功能
+
 ## 如何交流、反馈、参与贡献？
 
 * QQ JES-NG交流群:516627790
