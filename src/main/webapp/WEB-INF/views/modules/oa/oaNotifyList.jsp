@@ -44,9 +44,11 @@
         <td>状态</td>
         <td>查阅状态</td>
         <td>更新时间</td>
-        <c:if test="${!oaNotify.self}"><shiro:hasPermission name="oa:oaNotify:edit">
-            <td>操作</td>
-        </shiro:hasPermission></c:if>
+        <c:if test="${!oaNotify.self}">
+            <shiro:hasPermission name="oa:oaNotify:edit">
+                <td>操作</td>
+            </shiro:hasPermission>
+        </c:if>
     </tr>
     </thead>
     <tbody>

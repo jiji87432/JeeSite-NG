@@ -34,7 +34,8 @@
 <form:form id="inputForm" modelAttribute="user" action="${ctx}/sys/user/info"
            method="post" class="col-md-8" role="form">
     <sys:message content="${message}"/>
-    <common:ckfinderform label="头像" path="photo" id="nameImage" htmlEscape="false"></common:ckfinderform>
+    <common:ckfinderform uploadPath="/photo" label="头像" path="photo" id="nameImage" selectMultiple="false"
+                         htmlEscape="false"></common:ckfinderform>
     <common:labelgroup label="归属公司" value="${user.company.name}"></common:labelgroup>
     <common:labelgroup label="归属部门" value="${user.office.name}"></common:labelgroup>
     <common:formtextinput label="姓名" path="name" htmlEscape="false" readonly="true"></common:formtextinput>
