@@ -53,7 +53,10 @@
         <common:formradio label="状态" path="status" dict="oa_notify_status" isRequire="${true}"
                           helptext="发布后不能进行操作"></common:formradio>
         <common:formTreeSelect label="接受人" id="oaNotifyRecord" name="oaNotifyRecordIds"
-                               value="${oaNotify.oaNotifyRecordIds}" url="/sys/office/treeData?type=3"
+                               value="${oaNotify.oaNotifyRecordIds}"
+                               labelName="oaNotifyRecordNames"
+                               labelValue="${oaNotify.oaNotifyRecordNames}"
+                               url="/sys/office/treeData?type=3"
                                notAllowSelectParent="true" checked="true" isRequire="${true}"></common:formTreeSelect>
     </c:if>
     <c:if test="${oaNotify.status eq '1'}">

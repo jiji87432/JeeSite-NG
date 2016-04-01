@@ -4,6 +4,7 @@
 <%@ attribute name="path" type="java.lang.String" required="true" description="" %>
 <%@ attribute name="dict" type="java.lang.String" required="true" description="" %>
 <%@ attribute name="isRequire" type="java.lang.Boolean" required="false" description="是否必填项目" %>
+
 <c:if test="${isRequire eq true}">
     <c:set var="required" value="required"></c:set>
 </c:if>

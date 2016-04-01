@@ -3,7 +3,9 @@
 <%@ attribute name="label" type="java.lang.String" required="true" description="" %>
 <%@ attribute name="id" type="java.lang.String" required="true" description="" %>
 <%@ attribute name="name" type="java.lang.String" required="true" description="" %>
-<%@ attribute name="value" type="java.lang.String" required="false" description="" %>
+<%@ attribute name="value" type="java.lang.String" required="true" description="" %>
+<%@ attribute name="labelName" type="java.lang.String" required="true" description="" %>
+<%@ attribute name="labelValue" type="java.lang.String" required="true" description="" %>
 <%@ attribute name="url" type="java.lang.String" required="true" description="" %>
 <%@ attribute name="isRequire" type="java.lang.Boolean" required="false" description="" %>
 <%@ attribute name="notAllowSelectParent" type="java.lang.String" required="true" description="" %>
@@ -18,7 +20,7 @@
     <label class="control-label">${label}：</label>
     <div class="controls">
         <sys:treeselect id="${id}" name="${name}" value="${value}"
-                        labelName="${id}" labelValue="${value}"
+                        labelName="${labelName}" labelValue="${labelValue}"
                         title="${label}" url="${url}" cssClass="form-control ${required}"
                         notAllowSelectParent="${notAllowSelectParent}" checked="${checked}"/>
          <span class="help-inline">
