@@ -7,7 +7,6 @@
     <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
     <script type="text/javascript">
         $(document).ready(function () {
-            top.$.jBox.tip.mess = null;
             $("#inputForm").validate({
                 submitHandler: function (form) {
                     loading('正在提交，请稍等...');
@@ -41,39 +40,14 @@
 <sys:message content="${message}"/>
 <form id="inputForm" action="${ctx}/act/model/create" target="_blank" method="post"
       class="col-md-8" role="form">
-    <div class="form-group">
-        <label class="control-label">流程分类：</label>
-        <div class="controls">
-            <select id="category" name="category" class="required form-control">
-                <c:forEach items="${fns:getDictList('act_category')}" var="dict">
-                    <option value="${dict.value}">${dict.label}</option>
-                </c:forEach>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label">模块名称：</label>
-        <div class="controls">
-            <input id="name" name="name" type="text" class="required form-control"/>
-            <span class="help-inline"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label">模块标识：</label>
-        <div class="controls">
-            <input id="key" name="key" type="text" class="required form-control"/>
-            <span class="help-inline"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label">模块描述：</label>
-        <div class="controls">
-            <textarea id="description" name="description" class="required form-control"></textarea>
-        </div>
-    </div>
+    <common:formOriSelectEnumInput isRequire="${true}" label="流程分类" id="category" name="category"
+                                   dict="act_category"></common:formOriSelectEnumInput>
+    <common:textinput label="模块名称" id="name" name="name" isRequire="${true}"></common:textinput>
+    <common:textinput label="模块标识" id="key" name="key" isRequire="${true}"></common:textinput>
+    <common:textinput label="模块描述" id="description" name="description" isRequire="${true}"></common:textinput>
     <div class="form-actions">
-        <input id="btnSubmit" class="btn btn-primary" type="submit" value="提 交"/>
-        <input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
+        <common:savebutton></common:savebutton>
+        <common:canclebutton></common:canclebutton>
     </div>
 </form>
 </body>
