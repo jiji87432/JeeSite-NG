@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="${ctxStatic}/fontawesome/css/font-awesome.css">
 <link rel="stylesheet" href="${ctxStatic}/adminlte/ionicons.min.css">
 <link rel="stylesheet"
-      href="${ctxStatic}/adminlte/bootstrap/css/bootstrap.min.css">
+      href="${ctxStatic}/adminlte/bootstrap/css/bootstrap.css">
 <link rel="stylesheet"
       href="${ctxStatic}/adminlte/plugins/datatables/dataTables.bootstrap.css">
 <link rel="stylesheet" href="${ctxStatic}/adminlte/dist/css/AdminLTE.min.css">
