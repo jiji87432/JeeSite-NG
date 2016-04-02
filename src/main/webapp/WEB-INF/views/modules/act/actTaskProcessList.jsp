@@ -32,13 +32,13 @@
 	<table class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
-				<th>流程分类</th>
-				<th>流程标识</th>
-				<th>流程名称</th>
-				<th>流程图</th>
-				<th>流程版本</th>
-				<th>更新时间</th>
-				<th>操作</th>
+				<td>流程分类</td>
+				<td>流程标识</td>
+				<td>流程名称</td>
+				<td>流程图</td>
+				<td>流程版本</td>
+				<td>更新时间</td>
+				<td>操作</td>
 			</tr>
 		</thead>
 		<tbody>
