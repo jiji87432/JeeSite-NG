@@ -30,13 +30,3 @@ JES-NG是从[JeeSite](http://git.oschina.net/thinkgem/jeesite)发展出来的一
 * 捐赠支持JES-NG（支付宝）：529280602@qq.com
 
 ## 各个版本都主要干了什么
-
-### V1.0.0-Alpha.1
-* 替换前端主题为mPurpose
-* 替换后端主题为AdminLte
-* 弹窗组件更换为ArtDialog
-
-### V1.0.0-Alpha.2
-* 引入Echart3
-* 新增仪表盘界面,采用假数据演示
-
