@@ -3,18 +3,16 @@
  */
 package com.thinkgem.jeesite.common.persistence;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.thinkgem.jeesite.common.config.Global;
 import com.thinkgem.jeesite.common.utils.CookieUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * 分页类
@@ -199,11 +197,10 @@ public class Page<T> {
     public String toString() {
 
         StringBuilder sb = new StringBuilder();
-
         if (pageNo == first) {// 如果是首页
-            sb.append("<li class=\"paginate_button  disabled\"><a href=\"javascript:\">&#171; 上一页</a></li>\n");
+            sb.append("<li class=\"disabled\"><a href=\"javascript:\">&#171; 上一页</a></li>\n");
         } else {
-            sb.append("<li class='paginate_button '><a href=\"javascript:\" onclick=\"" + funcName + "(" + prev + "," + pageSize + ",'" + funcParam + "');\">&#171; 上一页</a></li>\n");
+            sb.append("<li><a href=\"javascript:\" onclick=\"" + funcName + "(" + prev + "," + pageSize + ",'" + funcParam + "');\">&#171; 上一页</a></li>\n");
         }
 
         int begin = pageNo - (length / 2);
@@ -225,42 +222,42 @@ public class Page<T> {
         if (begin > first) {
             int i = 0;
             for (i = first; i < first + slider && i < begin; i++) {
-                sb.append("<li class='paginate_button '><a href=\"javascript:\" onclick=\"" + funcName + "(" + i + "," + pageSize + ",'" + funcParam + "');\">"
+                sb.append("<li><a href=\"javascript:\" onclick=\"" + funcName + "(" + i + "," + pageSize + ",'" + funcParam + "');\">"
                         + (i + 1 - first) + "</a></li>\n");
             }
             if (i < begin) {
-                sb.append("<li class=\"paginate_button disabled\"><a href=\"javascript:\">...</a></li>\n");
+                sb.append("<li class=\"disabled\"><a href=\"javascript:\">...</a></li>\n");
             }
         }
 
         for (int i = begin; i <= end; i++) {
             if (i == pageNo) {
-                sb.append("<li class=\"paginate_button active\"><a href=\"javascript:\">" + (i + 1 - first)
+                sb.append("<li class=\"active\"><a href=\"javascript:\">" + (i + 1 - first)
                         + "</a></li>\n");
             } else {
-                sb.append("<li class='paginate_button '><a href=\"javascript:\" onclick=\"" + funcName + "(" + i + "," + pageSize + ",'" + funcParam + "');\">"
+                sb.append("<li><a href=\"javascript:\" onclick=\"" + funcName + "(" + i + "," + pageSize + ",'" + funcParam + "');\">"
                         + (i + 1 - first) + "</a></li>\n");
             }
         }
 
         if (last - end > slider) {
-            sb.append("<li class=\"paginate_button disabled\"><a href=\"javascript:\">...</a></li>\n");
+            sb.append("<li class=\"disabled\"><a href=\"javascript:\">...</a></li>\n");
             end = last - slider;
         }
 
         for (int i = end + 1; i <= last; i++) {
-            sb.append("<li class='paginate_button '><a href=\"javascript:\" onclick=\"" + funcName + "(" + i + "," + pageSize + ",'" + funcParam + "');\">"
+            sb.append("<li><a href=\"javascript:\" onclick=\"" + funcName + "(" + i + "," + pageSize + ",'" + funcParam + "');\">"
                     + (i + 1 - first) + "</a></li>\n");
         }
 
         if (pageNo == last) {
-            sb.append("<li class=\"paginate_button disabled\"><a href=\"javascript:\">下一页 &#187;</a></li>\n");
+            sb.append("<li class=\"disabled\"><a href=\"javascript:\">下一页 &#187;</a></li>\n");
         } else {
-            sb.append("<li class='paginate_button '><a href=\"javascript:\" onclick=\"" + funcName + "(" + next + "," + pageSize + ",'" + funcParam + "');\">"
+            sb.append("<li><a href=\"javascript:\" onclick=\"" + funcName + "(" + next + "," + pageSize + ",'" + funcParam + "');\">"
                     + "下一页 &#187;</a></li>\n");
         }
 
-        sb.append("<li class=\"paginate_button disabled controls\"><a href=\"javascript:\">当前 ");
+        sb.append("<li class=\"disabled controls\"><a href=\"javascript:\">当前 ");
         sb.append("<input type=\"text\" value=\"" + pageNo + "\" onkeypress=\"var e=window.event||this;var c=e.keyCode||e.which;if(c==13)");
         sb.append(funcName + "(this.value," + pageSize + ",'" + funcParam + "');\" onclick=\"this.select();\"/> / ");
         sb.append("<input type=\"text\" value=\"" + pageSize + "\" onkeypress=\"var e=window.event||this;var c=e.keyCode||e.which;if(c==13)");
@@ -269,6 +266,8 @@ public class Page<T> {
 
         sb.insert(0, "<div class=\"dataTables_paginate paging_simple_numbers\" id=\"example2_paginate\"><ul class='pagination pull-right'>\n").append("</ul>\n");
         sb.append("<div style=\"clear:both;\"></div></div>");
+
+
 //		sb.insert(0,"<div class=\"page\">\n").append("</div>\n");
 
         return sb.toString();

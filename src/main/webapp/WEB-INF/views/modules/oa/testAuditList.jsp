@@ -26,12 +26,20 @@
 </ul>
 <form:form id="searchForm" modelAttribute="testAudit" action="${ctx}/oa/testAudit/" method="post"
            class="row form-horizontal well" role="form">
-    <common:pagehiddeninfo></common:pagehiddeninfo>
-    <common:searchTreeSelectInput label="姓名" id="user" name="user.id" value="${testAudit.user.id}"
-                                  labelName="user.name" labelValue="${testAudit.user.name}"
-                                  title="用户" url="/sys/office/treeData?type=3" allowClear="true"
-                                  notAllowSelectParent="true"></common:searchTreeSelectInput>
-    <common:searchButton></common:searchButton>
+    <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
+    <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+
+    <div class="col-sm-6">
+        <label class="col-sm-4 control-label">姓名：</label>
+        <div class="col-sm-8">
+            <sys:treeselect id="user" name="user.id"
+                            value="${testAudit.user.id}" labelName="user.name"
+                            labelValue="${testAudit.user.name}"
+                            title="用户" url="/sys/office/treeData?type=3" cssClass="form-control"
+                            allowClear="true" notAllowSelectParent="true"/>
+        </div>
+    </div>
+    <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 
 </form:form>
 <sys:message content="${message}"/>

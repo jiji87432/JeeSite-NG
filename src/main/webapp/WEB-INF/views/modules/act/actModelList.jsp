@@ -6,36 +6,33 @@
     <meta name="decorator" content="default"/>
     <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
     <script type="text/javascript">
+        $(document).ready(function () {
+            top.$.jBox.tip.mess = null;
+        });
         function page(n, s) {
             location = '${ctx}/act/model/?pageNo=' + n + '&pageSize=' + s;
         }
         function updateCategory(id, category) {
-            var d = top.dialog({
-                title: '设置分类',
-                content: $('#categoryBox').html(),
+            $.jBox($("#categoryBox").html(), {
+                title: "设置分类", buttons: {"关闭": true}, submit: function () {
+                }
             });
-            d.showModal();
-            top.modelId = id;
-//            $("#categoryBoxId").val(id);
-//            $("#categoryBoxCategory").val(category);
+            $("#categoryBoxId").val(id);
+            $("#categoryBoxCategory").val(category);
         }
-
     </script>
     <script type="text/template" id="categoryBox">
         <form id="categoryForm" action="${ctx}/act/model/updateCategory" method="post" enctype="multipart/form-data"
-              style="text-align:center;" class="row form-horizontal " role="form"
-              onsubmit="javascript:debugger;$('#categoryBoxId').val(top.modelId)">
-            <br/>
+              style="text-align:center;" class="row form-horizontal well" role="form"><br/>
             <input id="categoryBoxId" type="hidden" name="id" value=""/>
-            <select id="categoryBoxCategory" name="category" class="form-control">
+            <select id="categoryBoxCategory" name="category" class="">
                 <c:forEach items="${fns:getDictList('act_category')}" var="dict">
                     <option value="${dict.value}">${dict.label}</option>
                 </c:forEach>
             </select>
             <br/><br/>　　
-            <common:savebutton></common:savebutton>　　
+            <input id="categorySubmit" class="btn btn-primary" type="submit" value="   保    存   "/>　　
         </form>
-
     </script>
 </head>
 <body>
@@ -44,9 +41,15 @@
     <li><a href="${ctx}/act/model/create">新建模型</a></li>
 </ul>
 <form id="searchForm" action="${ctx}/act/model/" method="post" class="row form-horizontal well" role="form">
-    <common:searchOriSelectEnumInput id="category" dict="act_category"
-                                     startLabel="全部分类"></common:searchOriSelectEnumInput>
-    <common:savebutton></common:savebutton>
+    <div class="col-sm-3">
+        <select id="category" name="category" class="form-control">
+            <option value="">全部分类</option>
+            <c:forEach items="${fns:getDictList('act_category')}" var="dict">
+                <option value="${dict.value}" ${dict.value==category?'selected':''}>${dict.label}</option>
+            </c:forEach>
+        </select>
+    </div>
+    &nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 </form>
 <sys:message content="${message}"/>
 <table class="table table-hover">

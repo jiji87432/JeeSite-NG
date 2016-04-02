@@ -105,10 +105,10 @@
                                 <div class="text-center col-xs-12">
                                     <img src="${fns:getUser().photo}"/>
                                 </div>
+
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
-
                                 <div class="col-xs-6 text-center">
                                     <a href="${ctx}/sys/user/modifyPwd" target="mainFrame">修改密码</a>
                                 </div>

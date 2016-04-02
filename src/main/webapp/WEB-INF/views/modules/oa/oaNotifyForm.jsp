@@ -29,35 +29,66 @@
 <body>
 <ul class="nav nav-tabs">
     <li><a href="${ctx}/oa/oaNotify/">通知列表</a></li>
-    <li class="active">
-        <a href="${ctx}/oa/oaNotify/form?id=${oaNotify.id}">通知
-            <shiro:hasPermission name="oa:oaNotify:edit">
-                ${oaNotify.status eq '1' ? '查看' : not empty oaNotify.id ? '修改' : '添加'}
-            </shiro:hasPermission>
-            <shiro:lacksPermission name="oa:oaNotify:edit">查看</shiro:lacksPermission>
-        </a>
-    </li>
+    <li class="active"><a href="${ctx}/oa/oaNotify/form?id=${oaNotify.id}">通知<shiro:hasPermission
+            name="oa:oaNotify:edit">${oaNotify.status eq '1' ? '查看' : not empty oaNotify.id ? '修改' : '添加'}</shiro:hasPermission><shiro:lacksPermission
+            name="oa:oaNotify:edit">查看</shiro:lacksPermission></a></li>
 </ul>
 <br/>
 <form:form id="inputForm" modelAttribute="oaNotify"
            action="${ctx}/oa/oaNotify/save" method="post" class="col-md-8" role="form">
     <form:hidden path="id"/>
     <sys:message content="${message}"/>
-    <common:formSelectEnumInput label="类型" path="type" dict="oa_notify_type"
-                                isRequire="${true}"></common:formSelectEnumInput>
-    <common:forminput label="标题" path="title" isRequire="${true}"></common:forminput>
-    <common:formtextare label="内容" path="content" isRequire="${true}"></common:formtextare>
+    <div class="form-group">
+        <label class="control-label">类型：</label>
+        <div class="controls">
+            <form:select path="type" class="form-control required">
+                <form:option value="" label=""/>
+                <form:options items="${fns:getDictList('oa_notify_type')}" itemLabel="label" itemValue="value"
+                              htmlEscape="false"/>
+            </form:select>
+            <span class="help-inline"><font color="red">*</font> </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">标题：</label>
+        <div class="controls">
+            <form:input path="title" htmlEscape="false" maxlength="200" class="form-control required"/>
+            <span class="help-inline"><font color="red">*</font> </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">内容：</label>
+        <div class="controls">
+            <form:textarea path="content" htmlEscape="false" rows="6" maxlength="2000" class="form-control required"/>
+            <span class="help-inline"><font color="red">*</font> </span>
+        </div>
+    </div>
     <c:if test="${oaNotify.status ne '1'}">
-        <common:ckfinderform selectMultiple="true" label="附件" path="files" id="files" htmlEscape="false"
-                             uploadPath="/oa/notify"></common:ckfinderform>
-        <common:formradio label="状态" path="status" dict="oa_notify_status" isRequire="${true}"
-                          helptext="发布后不能进行操作"></common:formradio>
-        <common:formTreeSelect label="接受人" id="oaNotifyRecord" name="oaNotifyRecordIds"
-                               value="${oaNotify.oaNotifyRecordIds}"
-                               labelName="oaNotifyRecordNames"
-                               labelValue="${oaNotify.oaNotifyRecordNames}"
-                               url="/sys/office/treeData?type=3"
-                               notAllowSelectParent="true" checked="true" isRequire="${true}"></common:formTreeSelect>
+        <div class="form-group">
+            <label class="control-label">附件：</label>
+            <div class="controls">
+                <form:hidden id="files" path="files" htmlEscape="false" maxlength="255" class="input-xlarge"/>
+                <sys:ckfinder input="files" type="files" uploadPath="/oa/notify" selectMultiple="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">状态：</label>
+            <div class="controls">
+                <form:radiobuttons path="status" items="${fns:getDictList('oa_notify_status')}" itemLabel="label"
+                                   itemValue="value" htmlEscape="false" class="required"/>
+                <span class="help-inline"><font color="red">*</font> 发布后不能进行操作。</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">接受人：</label>
+            <div class="controls">
+                <sys:treeselect id="oaNotifyRecord" name="oaNotifyRecordIds" value="${oaNotify.oaNotifyRecordIds}"
+                                labelName="oaNotifyRecordNames" labelValue="${oaNotify.oaNotifyRecordNames}"
+                                title="用户" url="/sys/office/treeData?type=3" cssClass="form-control required"
+                                notAllowSelectParent="true" checked="true"/>
+                <span class="help-inline"><font color="red">*</font> </span>
+            </div>
+        </div>
     </c:if>
     <c:if test="${oaNotify.status eq '1'}">
         <div class="form-group">
@@ -105,11 +136,10 @@
     </c:if>
     <div class="form-actions" style="margin-bottom: 10px">
         <c:if test="${oaNotify.status ne '1'}">
-            <shiro:hasPermission name="oa:oaNotify:edit">
-                <common:savebutton></common:savebutton>&nbsp;
-            </shiro:hasPermission>
+            <shiro:hasPermission name="oa:oaNotify:edit"><input id="btnSubmit" class="btn btn-primary" type="submit"
+                                                                value="保 存"/>&nbsp;</shiro:hasPermission>
         </c:if>
-        <common:canclebutton></common:canclebutton>
+        <input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
     </div>
 </form:form>
 </body>

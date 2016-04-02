@@ -26,13 +26,37 @@
 <form:form id="searchForm" modelAttribute="oaNotify"
            action="${ctx}/oa/oaNotify/${oaNotify.self?'self':''}" method="post"
            class="row form-horizontal well" role="form">
-    <common:pagehiddeninfo></common:pagehiddeninfo>
-    <common:searchtextinput label="标题" path="title"></common:searchtextinput>
-    <common:searchSelectEnumInput label="类型" path="type" dict="oa_notify_type"></common:searchSelectEnumInput>
+    <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
+    <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+
+    <div class="form-group col-sm-4">
+        <label class="col-sm-4 control-label">标题：</label>
+        <div class="col-sm-8">
+            <form:input path="title" htmlEscape="false" maxlength="200" class="form-control"/>
+        </div>
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label class="col-sm-4 control-label">类型：</label>
+        <div class="col-sm-8">
+
+            <form:select path="type" class="form-control">
+                <form:option value="" label=""/>
+                <form:options items="${fns:getDictList('oa_notify_type')}" itemLabel="label" itemValue="value"
+                              htmlEscape="false"/>
+            </form:select>
+        </div>
+    </div>
     <c:if test="${!requestScope.oaNotify.self}">
-        <common:searchRadioEnumInput label="状态" path="status" dict="oa_notify_status"></common:searchRadioEnumInput>
+        <div class="form-group col-sm-4">
+            <label class="col-sm-4 control-label">状态：</label>
+            <div class="col-sm-8">
+                <form:radiobuttons path="status" items="${fns:getDictList('oa_notify_status')}" itemLabel="label"
+                                   itemValue="value" htmlEscape="false"/>
+            </div>
+        </div>
     </c:if>
-    <common:searchButton></common:searchButton>
+    <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 
 </form:form>
 <sys:message content="${message}"/>
@@ -44,11 +68,9 @@
         <td>状态</td>
         <td>查阅状态</td>
         <td>更新时间</td>
-        <c:if test="${!oaNotify.self}">
-            <shiro:hasPermission name="oa:oaNotify:edit">
-                <td>操作</td>
-            </shiro:hasPermission>
-        </c:if>
+        <c:if test="${!oaNotify.self}"><shiro:hasPermission name="oa:oaNotify:edit">
+            <td>操作</td>
+        </shiro:hasPermission></c:if>
     </tr>
     </thead>
     <tbody>

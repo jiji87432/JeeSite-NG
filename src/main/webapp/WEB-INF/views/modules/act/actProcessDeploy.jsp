@@ -35,11 +35,26 @@
 <sys:message content="${message}"/>
 <form id="inputForm" action="${ctx}/act/process/deploy" method="post" enctype="multipart/form-data"
       class="col-md-8" role="form">
-    <common:formOriSelectEnumInput label="流程分类" id="category" name="category" dict="act_category"></common:formOriSelectEnumInput>
-    <common:formFileUpload label="流程文件" id="file" name="file" isRequire="${true}" helpText="支持文件格式：zip、bar、bpmn、bpmn20.xml"></common:formFileUpload>
+    <div class="form-group">
+        <label class="control-label">流程分类：</label>
+        <div class="controls">
+            <select id="category" name="category" class="required form-control">
+                <c:forEach items="${fns:getDictList('act_category')}" var="dict">
+                    <option value="${dict.value}">${dict.label}</option>
+                </c:forEach>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">流程文件：</label>
+        <div class="controls">
+            <input type="file" id="file" name="file" class="required "/>
+            <span class="help-inline">支持文件格式：zip、bar、bpmn、bpmn20.xml</span>
+        </div>
+    </div>
     <div class="form-actions">
-        <common:savebutton></common:savebutton>
-        <common:canclebutton></common:canclebutton>
+        <input id="btnSubmit" class="btn btn-primary" type="submit" value="提 交"/>
+        <input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
     </div>
 </form>
 </body>

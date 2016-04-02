@@ -40,14 +40,32 @@
            method="post" class="col-md-8" role="form">
     <form:hidden path="id"/>
     <sys:message content="${message}"/>
-    <common:textinput label="旧密码" id="oldPassword" name="oldPassword" type="password"
-                      isRequire="${true}"></common:textinput>
-    <common:textinput label="新密码" id="newPassword" name="newPassword" type="password"
-                      isRequire="${true}"></common:textinput>
-    <common:textinput label="确认新密码" id="confirmNewPassword" name="confirmNewPassword" type="password"
-                      isRequire="${true}"></common:textinput>
+    <div class="form-group">
+        <label class="control-label">旧密码:</label>
+        <div class="controls">
+            <input id="oldPassword" name="oldPassword" type="password" value="" maxlength="50" minlength="3"
+                   class="form-control required"/>
+            <span class="help-inline"><font color="red">*</font> </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">新密码:</label>
+        <div class="controls">
+            <input id="newPassword" name="newPassword" type="password" value="" maxlength="50" minlength="3"
+                   class="form-control required"/>
+            <span class="help-inline"><font color="red">*</font> </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">确认新密码:</label>
+        <div class="controls">
+            <input id="confirmNewPassword" name="confirmNewPassword" type="password" value="" maxlength="50"
+                   minlength="3" class="form-control required" equalTo="#newPassword"/>
+            <span class="help-inline"><font color="red">*</font> </span>
+        </div>
+    </div>
     <div class="form-actions">
-        <common:savebutton></common:savebutton>
+        <input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>
     </div>
 </form:form>
 </body>

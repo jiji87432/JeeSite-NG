@@ -33,7 +33,7 @@ public class OaNotifyController extends BaseController {
 
 	@Autowired
 	private OaNotifyService oaNotifyService;
-
+	
 	@ModelAttribute
 	public OaNotify get(@RequestParam(required=false) String id) {
 		OaNotify entity = null;
@@ -45,7 +45,7 @@ public class OaNotifyController extends BaseController {
 		}
 		return entity;
 	}
-
+	
 	@RequiresPermissions("oa:oaNotify:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(OaNotify oaNotify, HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -82,7 +82,7 @@ public class OaNotifyController extends BaseController {
 		addMessage(redirectAttributes, "保存通知'" + oaNotify.getTitle() + "'成功");
 		return "redirect:" + adminPath + "/oa/oaNotify/?repage";
 	}
-
+	
 	@RequiresPermissions("oa:oaNotify:edit")
 	@RequestMapping(value = "delete")
 	public String delete(OaNotify oaNotify, RedirectAttributes redirectAttributes) {
@@ -90,14 +90,14 @@ public class OaNotifyController extends BaseController {
 		addMessage(redirectAttributes, "删除通知成功");
 		return "redirect:" + adminPath + "/oa/oaNotify/?repage";
 	}
-
+	
 	/**
 	 * 我的通知列表
 	 */
 	@RequestMapping(value = "self")
 	public String selfList(OaNotify oaNotify, HttpServletRequest request, HttpServletResponse response, Model model) {
 		oaNotify.setSelf(true);
-		Page<OaNotify> page = oaNotifyService.find(new Page<OaNotify>(request, response), oaNotify);
+		Page<OaNotify> page = oaNotifyService.find(new Page<OaNotify>(request, response), oaNotify); 
 		model.addAttribute("page", page);
 		return "modules/oa/oaNotifyList";
 	}
@@ -113,7 +113,7 @@ public class OaNotifyController extends BaseController {
 		Page<OaNotify> page = oaNotifyService.find(new Page<OaNotify>(request, response), oaNotify);
 		return page;
 	}
-
+	
 	/**
 	 * 查看我的通知
 	 */
@@ -140,7 +140,7 @@ public class OaNotifyController extends BaseController {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * 查看我的通知-发送记录
 	 */
@@ -153,7 +153,7 @@ public class OaNotifyController extends BaseController {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * 获取我的通知数目
 	 */
