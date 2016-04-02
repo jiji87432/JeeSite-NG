@@ -5,9 +5,6 @@
     <title>运行中的流程</title>
     <meta name="decorator" content="default"/>
     <script type="text/javascript">
-        $(document).ready(function () {
-            top.$.jBox.tip.mess = null;
-        });
         function page(n, s) {
             location = '${ctx}/act/process/running/?pageNo=' + n + '&pageSize=' + s;
         }

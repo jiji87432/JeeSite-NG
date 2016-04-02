@@ -61,7 +61,7 @@
 <body>
 	<div class="accordion-group">
 		<div class="box-header with-border">
-			<h3 class="box-title">组织机构<i class="icon-refresh pull-right"
+			<h3 class="box-title">栏目分类<i class="icon-refresh pull-right"
 										 onclick="refreshTree();"></i></h3>
 		</div>
 	    <div class="accordion-body">

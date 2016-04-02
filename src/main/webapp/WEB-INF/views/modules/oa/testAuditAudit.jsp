@@ -110,7 +110,7 @@
             </tr>
         </table>
     </fieldset>
-    <div class="form-actions">
+    <div class="form-actions" style="margin-top: 15px;margin-bottom: 15px">
         <shiro:hasPermission name="oa:testAudit:edit">
             <c:if test="${testAudit.act.taskDefKey eq 'apply_end'}">
                 <input id="btnSubmit" class="btn btn-primary" type="submit" value="兑 现"
