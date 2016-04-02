@@ -5,34 +5,32 @@
     <title>流程管理</title>
     <meta name="decorator" content="default"/>
     <script type="text/javascript">
-        $(document).ready(function () {
-            top.$.jBox.tip.mess = null;
-        });
         function page(n, s) {
             location = '${ctx}/act/process/?pageNo=' + n + '&pageSize=' + s;
         }
         function updateCategory(id, category) {
-            $.jBox($("#categoryBox").html(), {
-                title: "设置分类", buttons: {"关闭": true}, submit: function () {
-                }
+            var d = top.dialog({
+                title: '设置分类',
+                content: $('#categoryBox').html(),
             });
-            $("#categoryBoxId").val(id);
-            $("#categoryBoxCategory").val(category);
+            d.showModal();
+            top.modelId = id;
         }
     </script>
     <script type="text/template" id="categoryBox">
         <form id="categoryForm" action="${ctx}/act/process/updateCategory" method="post" enctype="multipart/form-data"
-              style="text-align:center;" class="row form-horizontal well" role="form"><br/>
+              style="text-align:center;"
+              class="row form-horizontal well" role="form"
+              onsubmit="javascript:debugger;$('#categoryBoxId').val(top.modelId)">
+            <br/>
             <input id="categoryBoxId" type="hidden" name="procDefId" value=""/>
-            <div class="col-sm-6">
-                <select id="categoryBoxCategory" name="category" class="form-control">
-                    <c:forEach items="${fns:getDictList('act_category')}" var="dict">
-                        <option value="${dict.value}">${dict.label}</option>
-                    </c:forEach>
-                </select>
-            </div>
+            <select id="categoryBoxCategory" name="category" class="form-control">
+                <c:forEach items="${fns:getDictList('act_category')}" var="dict">
+                    <option value="${dict.value}">${dict.label}</option>
+                </c:forEach>
+            </select>
             <br/><br/>　　
-            <input id="categorySubmit" class="btn btn-primary" type="submit" value="   保    存   "/>　　
+            <common:savebutton></common:savebutton>
         </form>
     </script>
 </head>
@@ -43,15 +41,8 @@
     <li><a href="${ctx}/act/process/running/">运行中的流程</a></li>
 </ul>
 <form id="searchForm" action="${ctx}/act/process/" method="post" class="row form-horizontal well" role="form">
-    <div class="col-sm-3">
-        <select id="category" name="category" class="form-control">
-            <option value="">全部分类</option>
-            <c:forEach items="${fns:getDictList('act_category')}" var="dict">
-                <option value="${dict.value}" ${dict.value==category?'selected':''}>${dict.label}</option>
-            </c:forEach>
-        </select>
-    </div>
-    &nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+    <common:searchOriSelectEnumInput id="category" dict="act_category" startLabel="全部分类"></common:searchOriSelectEnumInput>
+    <common:searchButton></common:searchButton>
 </form>
 <sys:message content="${message}"/>
 <table class="table table-hover">

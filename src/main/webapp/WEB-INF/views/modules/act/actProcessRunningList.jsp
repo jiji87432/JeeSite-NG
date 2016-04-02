@@ -4,37 +4,6 @@
 <head>
     <title>运行中的流程</title>
     <meta name="decorator" content="default"/>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            top.$.jBox.tip.mess = null;
-        });
-        function page(n, s) {
-            location = '${ctx}/act/process/running/?pageNo=' + n + '&pageSize=' + s;
-        }
-        function updateCategory(id, category) {
-            $.jBox($("#categoryBox").html(), {
-                title: "设置分类", buttons: {"关闭": true}, submit: function () {
-                }
-            });
-            $("#categoryBoxId").val(id);
-            $("#categoryBoxCategory").val(category);
-        }
-    </script>
-    <script type="text/template" id="categoryBox">
-        <form id="categoryForm" action="${ctx}/act/process/updateCategory" method="post" enctype="multipart/form-data"
-              style="text-align:center;" class="row form-horizontal well" role="form"><br/>
-            <input id="categoryBoxId" type="hidden" name="procDefId" value=""/>
-            <div class="col-sm-3">
-                <select id="categoryBoxCategory" name="category" class="form-control">
-                    <c:forEach items="${fns:getDictList('act_category')}" var="dict">
-                        <option value="${dict.value}">${dict.label}</option>
-                    </c:forEach>
-                </select>
-                <br/><br/>　　
-                <input id="categorySubmit" class="btn btn-primary" type="submit" value="   保    存   "/>　　
-            </div>
-        </form>
-    </script>
 </head>
 <body>
 <ul class="nav nav-tabs">
@@ -43,21 +12,10 @@
     <li class="active"><a href="${ctx}/act/process/running/">运行中的流程</a></li>
 </ul>
 <form id="searchForm" action="${ctx}/act/process/running/" method="post" class="row form-horizontal well" role="form">
-    <div class="form-group col-sm-5">
-        <label class="col-sm-4 control-label">流程实例ID：</label>
-        <div class="col-sm-8">
-            <input type="text" id="procInsId" name="procInsId" value="${procInsId}" class="form-control"/>
-        </div>
-    </div>
-    <div class="form-group col-sm-5">
-        <label class="col-sm-4 control-label"></label>
-        <div class="col-sm-8">
-            <input type="text" id="procDefKey" name="procDefKey" value="${procDefKey}"
-                   class="form-control"/>
-        </div>
-    </div>
+    <common:searchTextOriInput label="流程实例ID" id="procInsId" name="procInsId" value="${procInsId}"></common:searchTextOriInput>
+    <common:searchTextOriInput label="流程实例ID" id="procDefKey" name="procDefKey" value="${procDefKey}"></common:searchTextOriInput>
     <div class=" col-sm-offset-9">
-        <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+        <common:searchButton></common:searchButton>
     </div>
 </form>
 <sys:message content="${message}"/>
