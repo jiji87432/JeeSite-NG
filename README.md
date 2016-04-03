@@ -35,6 +35,7 @@ JES-NG是从[JeeSite](http://git.oschina.net/thinkgem/jeesite)发展出来的一
 * 新增仪表盘示例页面
 * 数据库连接的密码采用密文方式
 * 调整Druid配置,加入SQL拦截,防止连接池泄漏,合并数据源监控等配置项
+* 引入Shiro-Redis,提供配置示例,为JES-NG提供横向扩展的能力
 
 ### V1.0.0-Alpha.1:
 * 替换后端界面为AdminLte
