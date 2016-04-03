@@ -57,20 +57,25 @@
         <property name="cacheManager" ref="shiroCacheManager"/>
     </bean>
 
-    <!-- 自定义会话管理配置 -->
-    <bean id="sessionManager" class="com.thinkgem.jeesite.common.security.shiro.session.SessionManager">
-        <property name="sessionDAO" ref="sessionDAO"/>
+    <!-- shiro redisManager -->
+    <bean id="redisManager" class="org.crazycake.shiro.RedisManager">
+        <property name="host" value="127.0.0.1"/>
+        <property name="port" value="6379"/>
+        <property name="expire" value="1800"/>
+        <!-- optional properties:
+        <property name="timeout" value="10000"/>
+        <property name="password" value="123456"/>
+        -->
+    </bean>
 
-        <!-- 会话超时时间，单位：毫秒  -->
-        <property name="globalSessionTimeout" value="${session.sessionTimeout}"/>
+    <!-- redisSessionDAO -->
+    <bean id="redisSessionDAO" class="org.crazycake.shiro.RedisSessionDAO">
+        <property name="redisManager" ref="redisManager"/>
+    </bean>
 
-        <!-- 定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话   -->
-        <property name="sessionValidationInterval" value="${session.sessionTimeoutClean}"/>
-        <!--  		<property name="sessionValidationSchedulerEnabled" value="false"/> -->
-        <property name="sessionValidationSchedulerEnabled" value="true"/>
-
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>
-        <property name="sessionIdCookieEnabled" value="true"/>
+    <!-- sessionManager -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="sessionDAO" ref="redisSessionDAO"/>
     </bean>
 
     <!-- 指定本系统SESSIONID, 默认为: JSESSIONID 问题: 与SERVLET容器名冲突, 如JETTY, TOMCAT 等默认JSESSIONID,
@@ -90,10 +95,9 @@
         <property name="cacheManager" ref="shiroCacheManager"/>
     </bean>
 
-    <!-- 定义授权缓存管理器 -->
-    <!-- 	<bean id="shiroCacheManager" class="com.thinkgem.jeesite.common.security.shiro.cache.SessionCacheManager" /> -->
-    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <property name="cacheManager" ref="cacheManager"/>
+    <!-- cacheManager -->
+    <bean id="shiroCacheManager" class="org.crazycake.shiro.RedisCacheManager">
+        <property name="redisManager" ref="redisManager"/>
     </bean>
 
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
