@@ -30,3 +30,15 @@ JES-NG是从[JeeSite](http://git.oschina.net/thinkgem/jeesite)发展出来的一
 * 捐赠支持JES-NG（支付宝）：529280602@qq.com
 
 ## 各个版本都主要干了什么
+
+### V1.0.0-Alpha.2(进行中):
+* 新增仪表盘示例页面
+* 数据库连接的密码采用密文方式
+* 调整Druid配置,加入SQL拦截,防止连接池泄漏,合并数据源监控等配置项
+
+### V1.0.0-Alpha.1:
+* 替换后端界面为AdminLte
+* 替换前端界面为mPurpose
+* 替换弹窗组件JBox为ArtDialog
+
+
