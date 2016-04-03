@@ -63,7 +63,7 @@
     <task:scheduler id="scheduler" pool-size="10"/>
     <task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>
 
-    <!-- 数据源配置, 使用 BoneCP 数据库连接池 -->
+    <!-- 数据源配置, 使用 Druid 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -97,11 +97,25 @@
         <property name="maxPoolPreparedStatementPerConnectionSize" value="20" /> -->
 
         <!-- 配置监控统计拦截的filters -->
-        <property name="filters" value="stat,mergeStat,wall"></property>
-        <property name="connectionProperties" value="druid.stat.slowSqlMillis=5000"/>
+        <!-- 加密数据库密码,密码生成方式为 java -cp druid-1.0.16.jar com.alibaba.druid.filter.config.ConfigTools you_password -->
+
+        <property name="filters" value="config,stat,mergeStat,wall"/>
+        <property name="connectionProperties"
+                  value="druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=${jdbc.publickey}"/>
+
         <!-- 合并数据源监控数据 -->
         <property name="useGlobalDataSourceStat" value="true"/>
+
+        <!-- 防止连接池泄漏 -->
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="1800"/> <!-- 1800秒，也就是30分钟 -->
+        <property name="logAbandoned" value="true"/>
+
+        <!-- 定期输出记录到日志 -->
+        <!--<property name="timeBetweenLogStatsMillis" value="300000" />-->
+
     </bean>
+
     <!-- 数据源配置, 使用应用服务器的数据库连接池
     <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/jeesite" />-->
 
