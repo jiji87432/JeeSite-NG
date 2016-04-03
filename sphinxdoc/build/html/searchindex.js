@@ -1,0 +1,1 @@
+Search.setIndex({envversion:46,filenames:["index","index1"],objects:{},objnames:{},objtypes:{},terms:{"ng\u7b80\u4ecb":0,content:0,index:[],modul:[],page:[],search:[]},titles:["Welcome to JES-NG&#8217;s documentation!","JES-NG\u7b80\u4ecb"],titleterms:{"ng\u7b80\u4ecb":1,document:0,indic:[],tabl:[],welcom:0}})
