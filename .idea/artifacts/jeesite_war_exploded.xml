@@ -129,7 +129,7 @@
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.8.1" />
           <element id="library" level="project" name="Maven: com.google.zxing:core:2.2" />
           <element id="library" level="project" name="Maven: com.google.zxing:javase:2.2" />
-          <element id="library" level="project" name="Maven: org.wltea:analyzer:2012_u6" />
+          <element id="library" level="project" name="Maven: com.huaban:jieba-analysis:1.0.2" />
           <element id="library" level="project" name="Maven: net.coobird:thumbnailator:0.4.2" />
           <element id="library" level="project" name="Maven: com.ckfinder:apache-ant-zip:2.3" />
           <element id="library" level="project" name="Maven: com.ckfinder:ckfinder:2.3" />
