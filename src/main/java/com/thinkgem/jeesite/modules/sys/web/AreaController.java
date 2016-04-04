@@ -38,7 +38,7 @@ public class AreaController extends BaseController {
 
 	@Autowired
 	private AreaService areaService;
-	
+
 	@ModelAttribute("area")
 	public Area get(@RequestParam(required=false) String id) {
 		if (StringUtils.isNotBlank(id)){
@@ -78,7 +78,7 @@ public class AreaController extends BaseController {
 		model.addAttribute("area", area);
 		return "modules/sys/areaForm";
 	}
-	
+
 	@RequiresPermissions("sys:area:edit")
 	@RequestMapping(value = "save")
 	public String save(Area area, Model model, RedirectAttributes redirectAttributes) {
@@ -93,7 +93,7 @@ public class AreaController extends BaseController {
 		addMessage(redirectAttributes, "保存区域'" + area.getName() + "'成功");
 		return "redirect:" + adminPath + "/sys/area/";
 	}
-	
+
 	@RequiresPermissions("sys:area:edit")
 	@RequestMapping(value = "delete")
 	public String delete(Area area, RedirectAttributes redirectAttributes) {
