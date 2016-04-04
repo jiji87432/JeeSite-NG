@@ -649,7 +649,7 @@
         <dependency>
             <groupId>bitwalker</groupId>
             <artifactId>UserAgentUtils</artifactId>
-            <version>1.13</version>
+            <version>1.2.4</version>
         </dependency>
 
         <!-- 自定义jar依赖包
@@ -866,7 +866,7 @@
             <!-- tomcat6插件 -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat6-maven-plugin</artifactId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>${tomcat.version}</version>
                 <configuration>
                     <port>${webserver.port}</port>
