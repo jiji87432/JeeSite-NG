@@ -21,7 +21,7 @@
     </shiro:hasPermission>
 </ul>
 <form:form id="searchForm" modelAttribute="dict" action="${ctx}/sys/dict/"
-           method="post" class="col-md-12 well form-horizontal" role="form">
+           method="post" class="row well form-horizontal" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 

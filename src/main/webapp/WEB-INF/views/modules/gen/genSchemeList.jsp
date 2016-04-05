@@ -29,7 +29,7 @@
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 
     <div class="form-group col-sm-4">
-        <label class="col-sm-4 control-label">方案名称 ：</label>
+        <label class="col-sm-4 control-label">方案名称：</label>
         <div class="col-sm-8">
             <form:input path="name" htmlEscape="false" maxlength="50" class="form-control"/>
         </div>
