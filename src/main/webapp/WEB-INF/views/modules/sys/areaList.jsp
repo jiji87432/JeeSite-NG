@@ -35,7 +35,7 @@
     </shiro:hasPermission>
 </ul>
 <sys:message content="${message}"/>
-<table id="treeTable" class="table table-striped table-bordered table-condensed">
+<table id="treeTable" class="table table-hover">
     <thead>
     <tr>
         <td>区域名称</td>
