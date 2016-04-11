@@ -1,194 +1,189 @@
 package org.apache.ibatis.thread;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.Configuration;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.core.NestedIOException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 刷新使用进程
- * 
+ *
  * @author liubaoquan
- * 
  */
 public class Runnable implements java.lang.Runnable {
 
-	public static Logger log = Logger.getLogger(Runnable.class);
+    public static Logger log = Logger.getLogger(Runnable.class);
 
-	private String location;
-	private Configuration configuration;
+    private String location;
+    private Configuration configuration;
 
-	private Long beforeTime = 0L; // 上一次刷新时间
-	private static boolean refresh = false; // 是否执行刷新
+    private Long beforeTime = 0L; // 上一次刷新时间
+    private static boolean refresh = false; // 是否执行刷新
 
-	private static String mappingPath = "mappings"; // xml文件夹匹配字符串，需要根据需要修改
-	private static int delaySeconds = 10;// 延迟刷新秒数
-	private static int sleepSeconds = 1;// 休眠时间
-	
-	private static boolean enabled = false;
+    private static String mappingPath = "mappings"; // xml文件夹匹配字符串，需要根据需要修改
+    private static int delaySeconds = 10;// 延迟刷新秒数
+    private static int sleepSeconds = 1;// 休眠时间
 
-	static {
-		delaySeconds = PropertiesUtil.getInt("delaySeconds");
-		sleepSeconds = PropertiesUtil.getInt("sleepSeconds");
-		mappingPath = PropertiesUtil.getString("mappingPath");
-		enabled = "true".equals(PropertiesUtil.getString("enabled"));
-		
-		delaySeconds = delaySeconds == 0 ? 50 : delaySeconds;
-		sleepSeconds = sleepSeconds == 0 ? 1 : sleepSeconds;
-		mappingPath = StringUtils.isBlank(mappingPath) ? "mappings"
-				: mappingPath;
+    private static boolean enabled = false;
 
-		log.debug("[delaySeconds] " + delaySeconds);
-		log.debug("[sleepSeconds] " + sleepSeconds);
-		log.debug("[mappingPath] " + mappingPath);
+    static {
+        delaySeconds = PropertiesUtil.getInt("delaySeconds");
+        sleepSeconds = PropertiesUtil.getInt("sleepSeconds");
+        mappingPath = PropertiesUtil.getString("mappingPath");
 
-	}
+        enabled = "true".equals(PropertiesUtil.getString("enabled"));
 
-	public static boolean isRefresh() {
-		return refresh;
-	}
+        delaySeconds = delaySeconds == 0 ? 50 : delaySeconds;
+        sleepSeconds = sleepSeconds == 0 ? 1 : sleepSeconds;
+        mappingPath = StringUtils.isBlank(mappingPath) ? "mappings"
+                : mappingPath;
 
-	public Runnable(String location, Configuration configuration) {
-		this.location = location.replaceAll("\\\\", "/");
-		this.configuration = configuration;
-	}
+        log.debug("[delaySeconds] " + delaySeconds);
+        log.debug("[sleepSeconds] " + sleepSeconds);
+        log.debug("[mappingPath] " + mappingPath);
 
-	@Override
-	public void run() {
-		location = location.substring("file [".length(),
-				location.lastIndexOf(mappingPath) + mappingPath.length());
-		beforeTime = System.currentTimeMillis();
+    }
 
-		log.debug("[location] " + location);
-		log.debug("[configuration] " + configuration);
-		
-		if (enabled){
-			start(this);
-		}
-	}
+    public static boolean isRefresh() {
+        return refresh;
+    }
 
-	public void start(final Runnable runnable) {
+    public Runnable(String location, Configuration configuration) {
+        this.location = location.replaceAll("\\\\", "/");
+        this.configuration = configuration;
+    }
 
-		new Thread(new java.lang.Runnable() {
+    @Override
+    public void run() {
+        location = location.substring("file [".length(),
+                location.lastIndexOf(mappingPath) + mappingPath.length());
+        beforeTime = System.currentTimeMillis();
 
-			@Override
-			public void run() {
+        log.debug("[location] " + location);
+        log.debug("[configuration] " + configuration);
 
-				try {
-					Thread.sleep(delaySeconds * 1000);
-				} catch (InterruptedException e2) {
-					e2.printStackTrace();
-				}
-				refresh = true;
+        if (enabled) {
+            start(this);
+        }
+    }
 
-				System.out.println("========= Enabled refresh mybatis mapper =========");
+    public void start(final Runnable runnable) {
 
-				while (true) {
-					try {
-						runnable.refresh(location, beforeTime);
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+        new Thread(() -> {
 
-					try {
-						Thread.sleep(sleepSeconds * 1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+            try {
+                Thread.sleep(delaySeconds * 1000);
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
+            }
+            refresh = true;
 
-				}
-			}
-		}).start();
-	}
+            System.out.println("========= Enabled refresh mybatis mapper =========");
 
-	/**
-	 * 执行刷新
-	 * 
-	 * @param filePath
-	 *            刷新目录
-	 * @param beforeTime
-	 *            上次刷新时间
-	 * @throws NestedIOException
-	 *             解析异常
-	 * @throws FileNotFoundException
-	 *             文件未找到
-	 */
-	public void refresh(String filePath, Long beforeTime) throws Exception {
+            while (true) {
+                try {
+                    runnable.refresh(location, beforeTime);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
 
-		// 本次刷新时间
-		Long refrehTime = System.currentTimeMillis();
+                try {
+                    Thread.sleep(sleepSeconds * 1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-		List<File> refreshs = this.getRefreshFile(new File(filePath),
-				beforeTime);
-		if (refreshs.size() > 0) {
-			log.debug("refresh files:" + refreshs.size());
-		}
-		for (int i = 0; i < refreshs.size(); i++) {
-			System.out.println("Refresh file: "
-					+ mappingPath
-					+ StringUtils.substringAfterLast(refreshs.get(i)
-							.getAbsolutePath(), mappingPath));
-			log.debug("refresh file:" + refreshs.get(i).getAbsolutePath());
-			log.debug("refresh filename:" + refreshs.get(i).getName());
-			SqlSessionFactoryBean.refresh(new FileInputStream(refreshs.get(i)),
-					refreshs.get(i).getAbsolutePath(), configuration);
-		}
-		// 如果刷新了文件，则修改刷新时间，否则不修改
-		if (refreshs.size() > 0) {
-			this.beforeTime = refrehTime;
-		}
-	}
+            }
+        }).start();
+    }
 
-	/**
-	 * 获取需要刷新的文件列表
-	 * 
-	 * @param dir
-	 *            目录
-	 * @param beforeTime
-	 *            上次刷新时间
-	 * @return 刷新文件列表
-	 */
-	public List<File> getRefreshFile(File dir, Long beforeTime) {
-		List<File> refreshs = new ArrayList<File>();
+    /**
+     * 执行刷新
+     *
+     * @param filePath   刷新目录
+     * @param beforeTime 上次刷新时间
+     * @throws NestedIOException     解析异常
+     * @throws FileNotFoundException 文件未找到
+     */
+    public void refresh(String filePath, Long beforeTime) throws Exception {
 
-		File[] files = dir.listFiles();
-		for (int i = 0; i < files.length; i++) {
-			File file = files[i];
-			if (file.isDirectory()) {
-				refreshs.addAll(this.getRefreshFile(file, beforeTime));
-			} else if (file.isFile()) {
-				if (this.check(file, beforeTime)) {
-					refreshs.add(file);
-				}
-			} else {
-				System.out.println("error file." + file.getName());
-			}
-		}
+        // 本次刷新时间
+        Long refrehTime = System.currentTimeMillis();
 
-		return refreshs;
-	}
+        List<File> refreshs = this.getRefreshFile(new File(filePath),
+                beforeTime);
+        if (refreshs.size() > 0) {
+            log.debug("refresh files:" + refreshs.size());
+        }
+        refreshs.forEach((file -> {
+            log.info("Refresh file: "
+                    + mappingPath
+                    + StringUtils.substringAfterLast(file
+                    .getAbsolutePath(), mappingPath));
+            log.debug("refresh file:" + file.getAbsolutePath());
+            log.debug("refresh filename:" + file.getName());
+            try {
+                SqlSessionFactoryBean.refresh(new FileInputStream(file),
+                        file.getAbsolutePath(), configuration);
+            } catch (NestedIOException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }));
 
-	/**
-	 * 判断文件是否需要刷新
-	 * 
-	 * @param file
-	 *            文件
-	 * @param beforeTime
-	 *            上次刷新时间
-	 * @return 需要刷新返回true，否则返回false
-	 */
-	public boolean check(File file, Long beforeTime) {
-		if (file.lastModified() > beforeTime) {
-			return true;
-		}
-		return false;
-	}
+        // 如果刷新了文件，则修改刷新时间，否则不修改
+        if (refreshs.size() > 0) {
+            this.beforeTime = refrehTime;
+        }
+    }
+
+    /**
+     * 获取需要刷新的文件列表
+     *
+     * @param dir        目录
+     * @param beforeTime 上次刷新时间
+     * @return 刷新文件列表
+     */
+    public List<File> getRefreshFile(File dir, Long beforeTime) {
+        List<File> refreshs = new ArrayList<File>();
+
+        File[] files = dir.listFiles();
+        Arrays.asList(files).forEach((file -> {
+            if (file.isDirectory()) {
+                refreshs.addAll(this.getRefreshFile(file, beforeTime));
+            } else if (file.isFile()) {
+                if (this.check(file, beforeTime)) {
+                    refreshs.add(file);
+                }
+            } else {
+                log.info("error file." + file.getName());
+            }
+        }));
+
+        return refreshs;
+    }
+
+    /**
+     * 判断文件是否需要刷新
+     *
+     * @param file       文件
+     * @param beforeTime 上次刷新时间
+     * @return 需要刷新返回true，否则返回false
+     */
+    public boolean check(File file, Long beforeTime) {
+        if (file.lastModified() > beforeTime) {
+            return true;
+        }
+        return false;
+    }
 
 }

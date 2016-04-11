@@ -67,6 +67,7 @@
             <url>http://192.168.11.36:8888/nexus/content/groups/public</url>
         </repository> -->
 
+
         <repository>
             <id>oschina-repos</id>
             <name>Oschina Releases</name>
@@ -83,12 +84,6 @@
             <id>springsource-repos</id>
             <name>SpringSource Repository</name>
             <url>http://repo.spring.io/release/</url>
-        </repository>
-
-        <repository>
-            <id>central-repos</id>
-            <name>Central Repository</name>
-            <url>http://repo.maven.apache.org/maven2</url>
         </repository>
 
         <repository>
@@ -253,6 +248,12 @@
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>mybatis-plus</artifactId>-->
+            <!--<version>1.2.10</version>-->
+        <!--</dependency>-->
+
 
         <!-- jdbc driver -->
         <dependency>

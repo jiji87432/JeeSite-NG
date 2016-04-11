@@ -28,16 +28,16 @@ public class Dict extends DataEntity<Dict> {
 	public Dict() {
 		super();
 	}
-	
+
 	public Dict(String id){
 		super(id);
 	}
-	
+
 	public Dict(String value, String label){
 		this.value = value;
 		this.label = label;
 	}
-	
+
 	@XmlAttribute
 	@Length(min=1, max=100)
 	public String getValue() {
@@ -47,7 +47,7 @@ public class Dict extends DataEntity<Dict> {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
+
 	@XmlAttribute
 	@Length(min=1, max=100)
 	public String getLabel() {
@@ -94,7 +94,7 @@ public class Dict extends DataEntity<Dict> {
 	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
-	
+
 	@Override
 	public String toString() {
 		return label;
