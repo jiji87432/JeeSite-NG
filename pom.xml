@@ -688,6 +688,13 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <include>*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
                     <include>**/*</include>
                 </includes>
             </resource>
@@ -963,6 +970,8 @@
             <id>dev</id>
             <properties>
                 <mybatisRefreshEnabled>true</mybatisRefreshEnabled>
+                <mybatisRefreshMappingPath>/Users/kira/Documents/oscgit/JeeSite-NG/src/main/resources/mappings
+                </mybatisRefreshMappingPath>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -973,6 +982,7 @@
             <id>pro</id>
             <properties>
                 <mybatisRefreshEnabled>false</mybatisRefreshEnabled>
+                <mybatisRefreshMappingPath>mappings</mybatisRefreshMappingPath>
             </properties>
         </profile>
         <!-- 初始化数据库 -->
