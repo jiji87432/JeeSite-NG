@@ -249,9 +249,9 @@
             <version>${mybatis-spring.version}</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.baomidou</groupId>-->
-            <!--<artifactId>mybatis-plus</artifactId>-->
-            <!--<version>1.2.10</version>-->
+        <!--<groupId>com.baomidou</groupId>-->
+        <!--<artifactId>mybatis-plus</artifactId>-->
+        <!--<version>1.2.10</version>-->
         <!--</dependency>-->
 
 
@@ -683,6 +683,22 @@
 
     <build>
         <outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/classes/</outputDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <!-- Compiler 插件, 设定JDK版本 -->
             <plugin>
@@ -949,6 +965,23 @@
     </build>
 
     <profiles>
+        <profile>
+            <!-- 开发环境 -->
+            <id>dev</id>
+            <properties>
+                <mybatisRefreshEnabled>true</mybatisRefreshEnabled>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 生产环境 -->
+            <id>pro</id>
+            <properties>
+                <mybatisRefreshEnabled>false</mybatisRefreshEnabled>
+            </properties>
+        </profile>
         <!-- 初始化数据库 -->
         <profile>
             <id>init-db</id>
