@@ -691,13 +691,6 @@
                     <include>**/*</include>
                 </includes>
             </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <excludes>
-                    <exclude>**/*</exclude>
-                </excludes>
-            </resource>
         </resources>
         <plugins>
             <!-- Compiler 插件, 设定JDK版本 -->
