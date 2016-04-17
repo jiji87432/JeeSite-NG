@@ -198,7 +198,7 @@
         <div class="controls">
             <div id="menuTree" class="ztree" style="margin-top:20px;"></div>
             <form:hidden path="menuIds"/>
-            <div id="officeTree" class="ztree" style="margin-left:100px;margin-top:3px;"></div>
+            <div id="officeTree" class="ztree" style="margin-top:3px;"></div>
             <form:hidden path="officeIds"/>
         </div>
     </div>
