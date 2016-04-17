@@ -20,6 +20,7 @@
         <li><a href="${ctx}/sys/dict/form?sort=10">字典添加</a></li>
     </shiro:hasPermission>
 </ul>
+<sys:message content="${message}"/>
 <form:form id="searchForm" modelAttribute="dict" action="${ctx}/sys/dict/"
            method="post" class="row well form-horizontal" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
@@ -29,7 +30,7 @@
         <label class="col-sm-4 control-label">类型：</label>
         <div class="col-sm-8">
             <form:select id="type" path="type" class="form-control ">
-                <form:option value="" label=""/>
+                <form:option value="" label="全部字典"/>
                 <form:options items="${typeList}" htmlEscape="false"/>
             </form:select>
         </div>
@@ -44,7 +45,7 @@
         <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
     </div>
 </form:form>
-<sys:message content="${message}"/>
+
 <table id="contentTable" class="table table-hover">
     <thead>
     <tr>

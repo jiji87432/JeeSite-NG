@@ -53,7 +53,7 @@ public class DictController extends BaseController {
     public String list(Dict dict, HttpServletRequest request, HttpServletResponse response, Model model) {
         List<String> typeList = dictService.findTypeList();
         model.addAttribute("typeList", typeList);
-        Page<Dict> page = dictService.findPage(new Page<Dict>(request, response), dict);
+        Page<Dict> page = dictService.findPage(new Page<>(request, response), dict);
         model.addAttribute("page", page);
         return "modules/sys/dictList";
     }
@@ -101,14 +101,14 @@ public class DictController extends BaseController {
         dict.setType(type);
 
         List<Dict> list = dictService.findList(dict);
-        for (int i = 0; i < list.size(); i++) {
-            Dict e = list.get(i);
+        list.forEach((e) -> {
             Map<String, Object> map = Maps.newHashMap();
             map.put("id", e.getId());
             map.put("pId", e.getParentId());
             map.put("name", StringUtils.replace(e.getLabel(), " ", ""));
             mapList.add(map);
-        }
+        });
+
         return mapList;
     }
 

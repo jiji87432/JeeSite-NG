@@ -5,7 +5,7 @@
 <c:if test="${not empty content}">
     <c:if test="${not empty type}"><c:set var="ctype" value="${type}"/></c:if><c:if test="${empty type}"><c:set
         var="ctype" value="${fn:indexOf(content,'失败') eq -1?'success':'error'}"/></c:if>
-    <div class="header">
+    <div class="header" style="margin-bottom: 10px">
         <div id="messageBox"
              class="alert ${fn:indexOf(content,'失败') eq -1?'alert-success':'alert-error'} ${empty message ? 'hide' : ''}">
             <button data-dismiss="alert" class="close">×</button>
