@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/cms-plugin/cms-plugin.iml" filepath="$PROJECT_DIR$/cms-plugin/cms-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-plugin/demo-plugin.iml" filepath="$PROJECT_DIR$/demo-plugin/demo-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/jesng.iml" filepath="$PROJECT_DIR$/jesng.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oa-plugin/oa-plugin.iml" filepath="$PROJECT_DIR$/oa-plugin/oa-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/site-core/site-core.iml" filepath="$PROJECT_DIR$/site-core/site-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-codegen/sys-codegen.iml" filepath="$PROJECT_DIR$/sys-codegen/sys-codegen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-plugin/sys-plugin.iml" filepath="$PROJECT_DIR$/sys-plugin/sys-plugin.iml" />
     </modules>
   </component>
 </project>

@@ -4,9 +4,12 @@
 *.war
 *.ear
 
+*.iml
 target
 *.imi
 
 .idea/*
 .idea
 /build/
+
+/temp
