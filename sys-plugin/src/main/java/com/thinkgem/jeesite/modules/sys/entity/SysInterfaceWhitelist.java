@@ -5,6 +5,8 @@ package com.thinkgem.jeesite.modules.sys.entity;
 
 import org.hibernate.validator.constraints.Length;
 import com.thinkgem.jeesite.modules.sys.entity.User;
+import java.util.List;
+import com.google.common.collect.Lists;
 
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
@@ -19,6 +21,7 @@ public class SysInterfaceWhitelist extends DataEntity<SysInterfaceWhitelist> {
 	private String hosts;		// 允许通过的主机IP或地址
 	private User user;		// 归属用户
 	private String authway;		// 认证方式
+	private List<SysInterface> sysInterfaceList = Lists.newArrayList();		// 子表列表
 	
 	public SysInterfaceWhitelist() {
 		super();
@@ -54,4 +57,11 @@ public class SysInterfaceWhitelist extends DataEntity<SysInterfaceWhitelist> {
 		this.authway = authway;
 	}
 	
+	public List<SysInterface> getSysInterfaceList() {
+		return sysInterfaceList;
+	}
+
+	public void setSysInterfaceList(List<SysInterface> sysInterfaceList) {
+		this.sysInterfaceList = sysInterfaceList;
+	}
 }

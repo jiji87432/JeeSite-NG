@@ -31,7 +31,7 @@
     <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 
     <div class="form-group col-sm-4">
-        <label class="col-sm-4 control-label">主机：</label>
+        <label class="col-sm-4 control-label">允许通过的主机IP或地址：</label>
         <div class="col-sm-8">
             <form:input path="hosts" htmlEscape="false" maxlength="255" class="form-control"/>
         </div>

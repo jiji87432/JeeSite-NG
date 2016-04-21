@@ -8,7 +8,7 @@ import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
 import com.thinkgem.jeesite.modules.sys.entity.SysInterface;
 
 /**
- * 接口列表DAO接口
+ * 接口管理白名单DAO接口
  * @author 吴文豪
  * @version 2016-04-21
  */
