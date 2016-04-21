@@ -31,13 +31,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cms-plugin" target="1.8" />
-      <module name="demo-plugin" target="1.8" />
+      <module name="cms-plugin" target="1.5" />
+      <module name="demo-plugin" target="1.5" />
       <module name="jesng" target="1.8" />
-      <module name="oa-plugin" target="1.8" />
+      <module name="oa-plugin" target="1.5" />
       <module name="site-core" target="1.8" />
-      <module name="sys-codegen" target="1.8" />
-      <module name="sys-plugin" target="1.8" />
+      <module name="sys-codegen" target="1.5" />
+      <module name="sys-plugin" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
