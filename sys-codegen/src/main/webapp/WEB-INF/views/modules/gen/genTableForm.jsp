@@ -10,10 +10,10 @@
             $("#comments").focus();
             $("#inputForm").validate({
                 submitHandler: function (form) {
-                    loading('正在提交，请稍等...');
+                    debugger;
                     $("input[type=checkbox]").each(function () {
                         $(this).after("<input type=\"hidden\" name=\"" + $(this).attr("name") + "\" value=\""
-                                + ($(this).attr("checked") ? "1" : "0") + "\"/>");
+                                + ($(this)[0].checked ? "1" : "0") + "\"/>");
                         $(this).attr("name", "_" + $(this).attr("name"));
                     });
                     form.submit();
@@ -149,8 +149,8 @@
                                 </td>
                                 <td>
                                     <input  type="text" name="columnList[${vs.index}].comments"
-                                           value="${column.comments}" maxlength="200" class="form-control required"
-                                           style="width:50px;"/>
+                                            value="${column.comments}" maxlength="200" class="form-control required"
+                                            style="width:50px;"/>
                                 </td>
                                 <td nowrap>
                                     <input type="hidden" name="columnList[${vs.index}].jdbcType"

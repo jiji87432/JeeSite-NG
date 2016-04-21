@@ -28,6 +28,7 @@
 		<li class="active"><a href="${r"${ctx}"}/${urlPrefix}/">${functionNameSimple}列表</a></li>
 		<shiro:hasPermission name="${permissionPrefix}:edit"><li><a href="${r"${ctx}"}/${urlPrefix}/form">${functionNameSimple}添加</a></li></shiro:hasPermission>
 	</ul>
+	<sys:message content="${r"${message}"}"/>
 	<form:form id="searchForm" modelAttribute="${className}" action="${r"${ctx}"}/${urlPrefix}/" method="post" class="row form-horizontal well" role="form">
 		<input id="pageNo" name="pageNo" type="hidden" value="${r"${page.pageNo}"}"/>
 		<input id="pageSize" name="pageSize" type="hidden" value="${r"${page.pageSize}"}"/>
@@ -77,7 +78,7 @@
 
 
 	</form:form>
-	<sys:message content="${r"${message}"}"/>
+
 	<table id="contentTable" class="table table-hover">
 		<thead>
 			<tr>
