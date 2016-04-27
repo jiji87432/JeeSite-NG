@@ -1,20 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.guitycrown</groupId>
+
+    <groupId>org.guitycrown.jesng</groupId>
     <artifactId>jesng</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>sys-plugin</module>
-        <module>site-core</module>
-        <module>sys-codegen</module>
-        <module>oa-plugin</module>
-        <module>cms-plugin</module>
-        <module>demo-plugin</module>
-    </modules>
-    <name>jesng Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+    <version>1.2.6</version>
+    <packaging>war</packaging>
+
+    <name>JESNG</name>
+    <url>http://git.oschina.net/guiticrown/JeeSite-NG</url>
+    <inceptionYear>2015-2016</inceptionYear>
 
     <!-- 项目属性 -->
     <properties>
@@ -70,11 +66,7 @@
             <name>Team Nexus Repository</name>
             <url>http://192.168.11.36:8888/nexus/content/groups/public</url>
         </repository> -->
-        <repository>
-            <id>central-repos2</id>
-            <name>Central Repository 2</name>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
+
 
         <repository>
             <id>oschina-repos</id>
@@ -94,6 +86,11 @@
             <url>http://repo.spring.io/release/</url>
         </repository>
 
+        <repository>
+            <id>central-repos2</id>
+            <name>Central Repository 2</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
 
         <repository>
             <id>activiti-repos</id>
@@ -141,6 +138,7 @@
 
     <!-- 依赖项定义 -->
     <dependencies>
+
         <!-- 数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -827,8 +825,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <attachClasses>true</attachClasses><!-- 把class打包jar作为附件 -->
-                    <archiveClasses>true</archiveClasses><!-- 把class打包jar -->
                     <packagingExcludes>
                         <!-- WEB-INF/classes/com/thinkgem/jeesite/** -->
                         WEB-INF/classes/org/apache/ibatis/**,
@@ -913,8 +909,6 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <stopKey/>
-                    <stopPort/>
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
                             <port>${webserver.port}</port>
@@ -922,7 +916,6 @@
                     </connectors>
                     <webAppConfig>
                         <contextPath>/${project.artifactId}</contextPath>
-                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
                     </webAppConfig>
                     <systemProperties>
                         <systemProperty>
@@ -930,8 +923,8 @@
                             <value>${project.build.sourceEncoding}</value>
                         </systemProperty>
                     </systemProperties>
-                    <stopPort/>
                     <stopKey/>
+                    <stopPort/>
                 </configuration>
             </plugin>
 
@@ -1009,69 +1002,22 @@
                 </dependency>
             </dependencies>
             <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>1.7</version>
-                        <configuration>
-                            <target>
 
-                                <!-- mysql -->
-                                <property name="dbunit.datatype" value="org.dbunit.ext.mysql.MySqlDataTypeFactory"/>
-
-                                <!-- mssql
-                                <property name="dbunit.datatype" value="org.dbunit.ext.mssql.MsSqlDataTypeFactory" /> -->
-
-                                <!-- oracle
-                                <property name="dbunit.datatype" value="org.dbunit.ext.oracle.Oracle10DataTypeFactory" /> -->
-
-                                <property file="src/main/resources/jeesite.properties"/>
-                                <sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
-                                     password="${jdbc.password}"
-                                     onerror="continue" encoding="${project.build.sourceEncoding}">
-                                    <classpath refid="maven.test.classpath"/>
-                                    <transaction src="db/sys/jeesite_${jdbc.type}.sql"/>
-                                    <transaction src="db/cms/jeesite_${jdbc.type}.sql"/>
-                                    <transaction src="db/oa/jeesite_${jdbc.type}.sql"/>
-                                    <transaction src="db/gen/jeesite_${jdbc.type}.sql"/>
-                                    <transaction src="db/gen/example_${jdbc.type}.sql"/>
-                                    <transaction src="db/test/jeesite_${jdbc.type}.sql"/>
-                                    <transaction src="db/act/drop/activiti.${jdbc.type}.drop.engine.sql"/>
-                                    <transaction src="db/act/drop/activiti.${jdbc.type}.drop.history.sql"/>
-                                    <transaction src="db/act/drop/activiti.${jdbc.type}.drop.identity.sql"/>
-                                    <transaction src="db/act/create/activiti.${jdbc.type}.create.engine.sql"/>
-                                    <transaction src="db/act/create/activiti.${jdbc.type}.create.history.sql"/>
-                                    <transaction src="db/act/create/activiti.${jdbc.type}.create.identity.sql"/>
-                                </sql>
-
-                                <taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask"
-                                         classpathref="maven.test.classpath"/>
-
-                                <!-- mysql、mssql -->
-                                <dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
-                                        password="${jdbc.password}">
-
-                                    <!-- oracle
-                                    <dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
-                                        password="${jdbc.password}" schema="${jdbc.username}" > -->
-
-                                    <dbconfig>
-                                        <property name="datatypeFactory" value="${dbunit.datatype}"/>
-                                    </dbconfig>
-                                    <classpath refid="maven.test.classpath"/>
-                                    <operation type="INSERT" src="db/sys/jeesite_data.xls" format="xls"
-                                               transaction="true"/>
-                                    <operation type="INSERT" src="db/cms/jeesite_data.xls" format="xls"
-                                               transaction="true"/>
-
-                                </dbunit>
-
-                            </target>
-                        </configuration>
-                    </plugin>
-                </plugins>
             </build>
         </profile>
     </profiles>
+
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <id>thinkgem</id>
+            <name>WangZhen</name>
+            <email>thinkgem at 163.com</email>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
 </project>
