@@ -141,7 +141,6 @@
 
     <!-- 依赖项定义 -->
     <dependencies>
-
         <!-- 数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
