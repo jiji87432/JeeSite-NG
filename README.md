@@ -1,8 +1,5 @@
 # JES-NG
 
-## 注意
-Admin的功能楼主转向WebAdmin。。。。本项目暂停更新 [WebAdmin](http://git.oschina.net/wuwenhao/WebAdmin)
-
 ## 简介
 
 JES-NG是从[JeeSite](http://git.oschina.net/thinkgem/jeesite)发展出来的一个快速开发平台,

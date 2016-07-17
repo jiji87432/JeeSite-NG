@@ -22,22 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="cms-plugin" />
-        <module name="demo-plugin" />
-        <module name="oa-plugin" />
-        <module name="site-core" />
-        <module name="sys-codegen" />
-        <module name="sys-plugin" />
+        <module name="jesng" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cms-plugin" target="1.8" />
-      <module name="demo-plugin" target="1.8" />
       <module name="jesng" target="1.8" />
-      <module name="oa-plugin" target="1.8" />
-      <module name="site-core" target="1.8" />
-      <module name="sys-codegen" target="1.8" />
-      <module name="sys-plugin" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

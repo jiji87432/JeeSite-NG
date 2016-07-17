@@ -224,7 +224,7 @@
                     </table>
                 </div>
             </fieldset>
-            <div class="form-actions">
+            <div class="form-actions" style="margin-bottom: 20px">
                 <shiro:hasPermission name="gen:genTable:edit"><input id="btnSubmit" class="btn btn-primary"
                                                                      type="submit"
                                                                      value="保 存"/>&nbsp;</shiro:hasPermission>

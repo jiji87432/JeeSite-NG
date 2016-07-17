@@ -17,12 +17,15 @@
     </script>
 </head>
 <body>
+
+
 <ul class="nav nav-tabs">
     <li class="active"><a href="${ctx}/gen/genTable/">业务表列表</a></li>
     <shiro:hasPermission name="gen:genTable:edit">
         <li><a href="${ctx}/gen/genTable/form">业务表添加</a></li>
     </shiro:hasPermission>
 </ul>
+<sys:message content="${message}"/>
 <form:form id="searchForm" modelAttribute="genTable" action="${ctx}/gen/genTable/" method="post"
            class="row form-horizontal well" role="form">
     <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
@@ -49,7 +52,7 @@
     </div>
     &nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 </form:form>
-<sys:message content="${message}"/>
+
 <table id="contentTable" class="table table-hover">
     <thead>
     <tr>

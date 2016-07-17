@@ -42,6 +42,7 @@
     <li><a href="${ctx}/act/process/deploy/">部署流程</a></li>
     <li><a href="${ctx}/act/process/running/">运行中的流程</a></li>
 </ul>
+<sys:message content="${message}"/>
 <form id="searchForm" action="${ctx}/act/process/" method="post" class="row form-horizontal well" role="form">
     <div class="col-sm-3">
         <select id="category" name="category" class="form-control">
@@ -53,7 +54,7 @@
     </div>
     &nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
 </form>
-<sys:message content="${message}"/>
+
 <table class="table table-hover">
     <thead>
     <tr>
